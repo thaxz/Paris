@@ -7,6 +7,8 @@
 
 import UIKit
 
+// Controller da tela "Inicio"
+
 class HomeViewController: UIViewController {
 
     override func viewDidLoad() {

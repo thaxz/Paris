@@ -7,6 +7,8 @@
 
 import UIKit
 
+// Controller da tela "Salvos"
+
 class SavedViewController: UIViewController {
 
     override func viewDidLoad() {
