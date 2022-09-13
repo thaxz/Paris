@@ -17,12 +17,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         // criando janela
         let window = UIWindow(windowScene: windowScene)
+        // criando tabBar controller
+        let tabBarController = TabBarController()
+        // criando navigation controller
+        // home
+        let homeNavigation = UINavigationController(rootViewController: HomeViewController())
+        // search
+        let searchNavigation = UINavigationController(rootViewController: SearchViewController())
+        // salvos
+        let savedNavigation = UINavigationController(rootViewController: SavedViewController())
+        // adicionando na tabBar as vc
+        tabBarController.viewControllers = [homeNavigation, searchNavigation, savedNavigation]
         // dizendo que é o root vc
-        window.rootViewController = ViewController()
+        window.rootViewController = tabBarController
         // window recebendo a que criamos
         self.window = window
         // deixando visivel
         window.makeKeyAndVisible()
+        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
