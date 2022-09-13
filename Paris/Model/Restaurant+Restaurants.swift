@@ -17,10 +17,11 @@ extension Restaurant {
             
             Restaurant(name: "",
                        rating: "",
-                       priceAverage: "",
+                       priceRange: "",
                        distance: "",
                        description: "",
                        phoneNumber: "",
+                       address: "",
                        mainImage: "",
                        dishImage: "",
                        features: [
@@ -45,4 +46,7 @@ extension Restaurant {
             
         ] // Fim do return
     }
+    
+    
+    
 }
