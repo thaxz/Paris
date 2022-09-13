@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         // criando tabBar controller
         let tabBarController = TabBarController()
+        
         // criando navigation controller
         // home
         let homeNavigation = UINavigationController(rootViewController: HomeViewController())
@@ -26,6 +27,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let searchNavigation = UINavigationController(rootViewController: SearchViewController())
         // salvos
         let savedNavigation = UINavigationController(rootViewController: SavedViewController())
+        // perfil
+        _ = UINavigationController(rootViewController: ProfileViewController())
+        
         // adicionando na tabBar as vc
         tabBarController.viewControllers = [homeNavigation, searchNavigation, savedNavigation]
         // dizendo que é o root vc
