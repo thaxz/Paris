@@ -14,6 +14,8 @@
 		E9182EB728D0118E0071EB69 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EB628D0118E0071EB69 /* ExtensionUIImage.swift */; };
 		E948519E28D0A6AA0032DBDC /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E948519D28D0A6AA0032DBDC /* Restaurant.swift */; };
 		E94851A028D0A6C50032DBDC /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = E948519F28D0A6C50032DBDC /* Tour.swift */; };
+		E94851A228D0AF610032DBDC /* Restaurant+Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94851A128D0AF610032DBDC /* Restaurant+Restaurants.swift */; };
+		E94851A428D0AF760032DBDC /* Tour+Tours.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94851A328D0AF760032DBDC /* Tour+Tours.swift */; };
 		E9E58CF728CD0DB5005BDAE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E58CF628CD0DB5005BDAE8 /* AppDelegate.swift */; };
 		E9E58CF928CD0DB5005BDAE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E58CF828CD0DB5005BDAE8 /* SceneDelegate.swift */; };
 		E9E58CFB28CD0DB5005BDAE8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E58CFA28CD0DB5005BDAE8 /* HomeViewController.swift */; };
@@ -31,6 +33,8 @@
 		E9182EB628D0118E0071EB69 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		E948519D28D0A6AA0032DBDC /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		E948519F28D0A6C50032DBDC /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
+		E94851A128D0AF610032DBDC /* Restaurant+Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+Restaurants.swift"; sourceTree = "<group>"; };
+		E94851A328D0AF760032DBDC /* Tour+Tours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tour+Tours.swift"; sourceTree = "<group>"; };
 		E9E58CF328CD0DB5005BDAE8 /* Paris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E58CF628CD0DB5005BDAE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9E58CF828CD0DB5005BDAE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 			children = (
 				E948519D28D0A6AA0032DBDC /* Restaurant.swift */,
 				E948519F28D0A6C50032DBDC /* Tour.swift */,
+				E94851A128D0AF610032DBDC /* Restaurant+Restaurants.swift */,
+				E94851A328D0AF760032DBDC /* Tour+Tours.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,12 +194,14 @@
 				E948519E28D0A6AA0032DBDC /* Restaurant.swift in Sources */,
 				E9E58CFB28CD0DB5005BDAE8 /* HomeViewController.swift in Sources */,
 				E9182EB728D0118E0071EB69 /* ExtensionUIImage.swift in Sources */,
+				E94851A428D0AF760032DBDC /* Tour+Tours.swift in Sources */,
 				E94851A028D0A6C50032DBDC /* Tour.swift in Sources */,
 				E9182EB128D007920071EB69 /* SearchViewController.swift in Sources */,
 				E9182EB528D011740071EB69 /* ExtensionSegmentedControll.swift in Sources */,
 				E9E58D0C28CD0E8D005BDAE8 /* UIView+Preview.swift in Sources */,
 				E9E58D0D28CD0E8D005BDAE8 /* UIViewController+Preview.swift in Sources */,
 				E9182EAF28D006FA0071EB69 /* TabBarController.swift in Sources */,
+				E94851A228D0AF610032DBDC /* Restaurant+Restaurants.swift in Sources */,
 				E9E58CF728CD0DB5005BDAE8 /* AppDelegate.swift in Sources */,
 				E9182EB328D007A00071EB69 /* SavedViewController.swift in Sources */,
 				E9E58CF928CD0DB5005BDAE8 /* SceneDelegate.swift in Sources */,

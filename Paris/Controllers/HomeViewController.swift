@@ -30,6 +30,8 @@ class HomeViewController: UIViewController {
     
     // Criar os outros componentes aqui
     
+    let restaurants = Restaurant.restaurants()
+    let tours = Tour.tours()
     
     
     override func viewDidLoad() {

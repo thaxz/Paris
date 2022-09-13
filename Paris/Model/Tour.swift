@@ -16,6 +16,9 @@ struct Tour: Codable {
     let description: String
     let phoneNumber: String?
     
+    let mainImage: String
+    let secondImage: String
+    
     let features: [String]
     let nearbyRestaurants: [Restaurant]
     let nearbyTours: [Tour]

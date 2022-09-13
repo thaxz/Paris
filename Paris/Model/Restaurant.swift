@@ -18,6 +18,9 @@ struct Restaurant: Codable {
     let description: String
     let phoneNumber: String
     
+    let mainImage: String
+    let dishImage: String
+    
     let features: [String]
     let nearbyRestaurants: [Restaurant]
     let nearbyTours: [Tour]
