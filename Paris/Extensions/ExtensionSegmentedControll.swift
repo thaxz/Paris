@@ -33,6 +33,7 @@ extension UISegmentedControl {
         self.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor : UIColor(named: "redMain")!], for: .selected)
         
         self.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor : UIColor.black], for: .normal)
+        
     }
     
     // Criando o underline
