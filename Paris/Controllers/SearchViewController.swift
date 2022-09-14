@@ -120,8 +120,9 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
             // labels
             stackLbSearch.leadingAnchor.constraint(equalTo: stackGeneral.leadingAnchor),
             stackLbSearch.trailingAnchor.constraint(equalTo: stackGeneral.trailingAnchor),
-            stackLbSearch.topAnchor.constraint(equalTo: ivSearch.bottomAnchor, constant: 0)
-        
+            stackLbSearch.topAnchor.constraint(equalTo: ivSearch.bottomAnchor, constant: 0),
+            //
+            lbSearch.topAnchor.constraint(equalTo: stackLbSearch.topAnchor),
             
         ])
         
