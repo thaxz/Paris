@@ -29,11 +29,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let savedNavigation = UINavigationController(rootViewController: SavedViewController())
         // perfil
         _ = UINavigationController(rootViewController: ProfileViewController())
+        // veja mais
+        let seeAllNavigation = UINavigationController(rootViewController: SeeAllViewController())
         
         // adicionando na tabBar as vc
         tabBarController.viewControllers = [homeNavigation, searchNavigation, savedNavigation]
         // dizendo que é o root vc
-        window.rootViewController = tabBarController
+        window.rootViewController = seeAllNavigation
         // window recebendo a que criamos
         self.window = window
         // deixando visivel

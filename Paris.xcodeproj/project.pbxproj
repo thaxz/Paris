@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A391505A28D25C3900C982EF /* SeeAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A391505928D25C3900C982EF /* SeeAllViewController.swift */; };
+		A391505C28D2635F00C982EF /* SeeAllCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A391505B28D2635F00C982EF /* SeeAllCollectionViewCell.swift */; };
 		E9182EAF28D006FA0071EB69 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EAE28D006FA0071EB69 /* TabBarController.swift */; };
 		E9182EB128D007920071EB69 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EB028D007920071EB69 /* SearchViewController.swift */; };
 		E9182EB328D007A00071EB69 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EB228D007A00071EB69 /* SavedViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A391505928D25C3900C982EF /* SeeAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllViewController.swift; sourceTree = "<group>"; };
+		A391505B28D2635F00C982EF /* SeeAllCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9182EAE28D006FA0071EB69 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E9182EB028D007920071EB69 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E9182EB228D007A00071EB69 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 				E9E58CFA28CD0DB5005BDAE8 /* HomeViewController.swift */,
 				E9182EB028D007920071EB69 /* SearchViewController.swift */,
 				E9182EB228D007A00071EB69 /* SavedViewController.swift */,
+				A391505928D25C3900C982EF /* SeeAllViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -78,6 +83,7 @@
 				E948519F28D0A6C50032DBDC /* Tour.swift */,
 				E94851A128D0AF610032DBDC /* Restaurant+Restaurants.swift */,
 				E94851A328D0AF760032DBDC /* Tour+Tours.swift */,
+				A391505B28D2635F00C982EF /* SeeAllCollectionViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,11 +205,13 @@
 				E9182EB728D0118E0071EB69 /* ExtensionUIImage.swift in Sources */,
 				E94851A428D0AF760032DBDC /* Tour+Tours.swift in Sources */,
 				E94851A028D0A6C50032DBDC /* Tour.swift in Sources */,
+				A391505C28D2635F00C982EF /* SeeAllCollectionViewCell.swift in Sources */,
 				E9182EB128D007920071EB69 /* SearchViewController.swift in Sources */,
 				E9182EB528D011740071EB69 /* ExtensionSegmentedControll.swift in Sources */,
 				E9E58D0C28CD0E8D005BDAE8 /* UIView+Preview.swift in Sources */,
 				E9E58D0D28CD0E8D005BDAE8 /* UIViewController+Preview.swift in Sources */,
 				E9182EAF28D006FA0071EB69 /* TabBarController.swift in Sources */,
+				A391505A28D25C3900C982EF /* SeeAllViewController.swift in Sources */,
 				E94851A228D0AF610032DBDC /* Restaurant+Restaurants.swift in Sources */,
 				E9E58CF728CD0DB5005BDAE8 /* AppDelegate.swift in Sources */,
 				E9370BC428D0B6D300FD4344 /* ProfileViewController.swift in Sources */,
