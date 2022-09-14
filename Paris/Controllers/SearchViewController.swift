@@ -22,9 +22,41 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
     
     // Instantiating components
     
-    var ivSearch = UIImageView()
-    var lbSearch = UILabel()
-    var lbSearchMessage = UILabel()
+    lazy var ivSearch: UIImageView = {
+        let image: UIImageView = UIImageView()
+        var attImage = UIImage(named: "searchDefault")
+        image.image = attImage
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    lazy var lbSearch: UILabel = {
+        let label: UILabel = UILabel()
+        let semiboldAttrs = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .semibold)]
+        let pieces = ["Pesquise o nome de um lugar que você gosta.", "Nenhum resultado encontrado."]
+        var attributedPieces = NSMutableAttributedString(string: pieces[0], attributes: semiboldAttrs)
+        label.attributedText = attributedPieces
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isUserInteractionEnabled = false
+        return label
+    }()
+    
+    lazy var lbSearchMessage: UILabel = {
+        let label: UILabel = UILabel()
+        let regularAttrs = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)]
+        var pieces = ["", "Tente pesquisar outro termo."]
+        var attributedPieces = NSMutableAttributedString(string: pieces[0], attributes: regularAttrs)
+        label.attributedText = attributedPieces
+        label.numberOfLines = 0
+        label.textColor = UIColor(named: "black75")
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isUserInteractionEnabled = false
+        return label
+    }()
+    
     
     // Views and stacks to help on autolayout
     
@@ -56,28 +88,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
     
     func changingAttributes(){
         
-        // Search image and content
-        ivSearch.image = UIImage(named: "searchDefault")
-        ivSearch.contentMode = .scaleAspectFit
-        // Text
-        let semiboldAttrs = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .semibold)]
-        let regularAttrs = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)]
         
-        let searchPieces = ["Pesquise o nome de um lugar que você gosta.", "Nenhum resultado encontrado."]
-        let messagePieces = ["", "Tente pesquisar outro termo."]
-        
-        var attributedSearchPieces = NSMutableAttributedString(string: searchPieces[0], attributes: semiboldAttrs)
-        var attributedMessagePieces = NSMutableAttributedString(string: messagePieces[0], attributes: regularAttrs)
-        
-        lbSearch.attributedText = attributedSearchPieces
-        lbSearchMessage.attributedText = attributedMessagePieces
-        
-        
-        
-        
-        //lbSearch.text = "Pesquise o nome de um lugar que você gosta."
-        //lbSearchMessage.text = ""
-        // Stack
         stackLbSearch.axis = .vertical
         stackLbSearch.alignment = .center
         stackLbSearch.distribution = .fillEqually
@@ -95,11 +106,24 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
         // MARK: - Setting up constraints
         // Stack general
         stackGeneral.translatesAutoresizingMaskIntoConstraints = false
-        ivSearch.translatesAutoresizingMaskIntoConstraints = false
-        lbSearch.translatesAutoresizingMaskIntoConstraints = false
-        lbSearchMessage.translatesAutoresizingMaskIntoConstraints = false
+        stackLbSearch.translatesAutoresizingMaskIntoConstraints = false
         
+        NSLayoutConstraint.activate([
+            // stack general
+            stackGeneral.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 74),
+            stackGeneral.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            stackGeneral.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            // view img
+            ivSearch.centerXAnchor.constraint(equalTo: viewIvSearch.centerXAnchor),
+            ivSearch.centerYAnchor.constraint(equalTo: viewIvSearch.centerYAnchor),
+            ivSearch.heightAnchor.constraint(equalToConstant: 203),
+            // labels
+            stackLbSearch.leadingAnchor.constraint(equalTo: stackGeneral.leadingAnchor),
+            stackLbSearch.trailingAnchor.constraint(equalTo: stackGeneral.trailingAnchor),
+            stackLbSearch.topAnchor.constraint(equalTo: ivSearch.bottomAnchor, constant: 0)
         
+            
+        ])
         
     }
     
@@ -112,14 +136,18 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-        //lbSearch.isHidden = false
+        
+        stackLbSearch.isHidden = false
+        viewIvSearch.isHidden = false
     }
     
     // Updating results as soon as you type something
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        //lbSearch.isHidden = true
+        stackLbSearch.isHidden = true
+        viewIvSearch.isHidden = true
+        
         guard let title = searchController.searchBar.text else {return}
         
 //        Task {
