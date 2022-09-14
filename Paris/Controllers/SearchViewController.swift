@@ -20,6 +20,19 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
     // Instantiating searchController
     let searchController = UISearchController()
     
+    // Instantiating components
+    
+    var ivSearch = UIImageView()
+    var lbSearch = UILabel()
+    var lbSearchMessage = UILabel()
+    
+    // Views and stacks to help on autolayout
+    
+    let viewIvSearch = UIView()
+    let stackLbSearch = UIStackView()
+    let stackGeneral = UIStackView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,17 +41,65 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
     
     func setHierarchy(){
         
-        // MARK: Adicionando componentes na view
-        // A ordem importa!
+        // MARK: Adding components
         // View
+        view.addSubview(stackGeneral)
+        // Things on theirs containers
+        viewIvSearch.addSubview(ivSearch)
+        stackLbSearch.addArrangedSubview(lbSearch)
+        stackLbSearch.addArrangedSubview(lbSearchMessage)
+        // Add on general stack
+        stackGeneral.addArrangedSubview(viewIvSearch)
+        stackGeneral.addArrangedSubview(stackLbSearch)
         
     }
     
     func changingAttributes(){
         
+        // Search image and content
+        ivSearch.image = UIImage(named: "searchDefault")
+        ivSearch.contentMode = .scaleAspectFit
+        // Text
+        let semiboldAttrs = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .semibold)]
+        let regularAttrs = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)]
+        
+        let searchPieces = ["Pesquise o nome de um lugar que você gosta.", "Nenhum resultado encontrado."]
+        let messagePieces = ["", "Tente pesquisar outro termo."]
+        
+        var attributedSearchPieces = NSMutableAttributedString(string: searchPieces[0], attributes: semiboldAttrs)
+        var attributedMessagePieces = NSMutableAttributedString(string: messagePieces[0], attributes: regularAttrs)
+        
+        lbSearch.attributedText = attributedSearchPieces
+        lbSearchMessage.attributedText = attributedMessagePieces
+        
+        
+        
+        
+        //lbSearch.text = "Pesquise o nome de um lugar que você gosta."
+        //lbSearchMessage.text = ""
+        // Stack
+        stackLbSearch.axis = .vertical
+        stackLbSearch.alignment = .center
+        stackLbSearch.distribution = .fillEqually
+        stackLbSearch.spacing = 8
+        
+        stackGeneral.axis = .vertical
+        stackGeneral.alignment = .center
+        stackGeneral.distribution = .fillEqually
+        stackGeneral.spacing = 24
+        
     }
     
     func setUpConstraints () {
+        
+        // MARK: - Setting up constraints
+        // Stack general
+        stackGeneral.translatesAutoresizingMaskIntoConstraints = false
+        ivSearch.translatesAutoresizingMaskIntoConstraints = false
+        lbSearch.translatesAutoresizingMaskIntoConstraints = false
+        lbSearchMessage.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         
     }
     
