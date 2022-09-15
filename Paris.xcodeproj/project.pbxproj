@@ -17,6 +17,7 @@
 		E94851A028D0A6C50032DBDC /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = E948519F28D0A6C50032DBDC /* Tour.swift */; };
 		E94851A228D0AF610032DBDC /* Restaurant+Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94851A128D0AF610032DBDC /* Restaurant+Restaurants.swift */; };
 		E94851A428D0AF760032DBDC /* Tour+Tours.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94851A328D0AF760032DBDC /* Tour+Tours.swift */; };
+		E9DB9E6228D2A5E80027B370 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB9E6128D2A5E80027B370 /* SearchView.swift */; };
 		E9E58CF728CD0DB5005BDAE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E58CF628CD0DB5005BDAE8 /* AppDelegate.swift */; };
 		E9E58CF928CD0DB5005BDAE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E58CF828CD0DB5005BDAE8 /* SceneDelegate.swift */; };
 		E9E58CFB28CD0DB5005BDAE8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E58CFA28CD0DB5005BDAE8 /* HomeViewController.swift */; };
@@ -37,6 +38,7 @@
 		E948519F28D0A6C50032DBDC /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
 		E94851A128D0AF610032DBDC /* Restaurant+Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+Restaurants.swift"; sourceTree = "<group>"; };
 		E94851A328D0AF760032DBDC /* Tour+Tours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tour+Tours.swift"; sourceTree = "<group>"; };
+		E9DB9E6128D2A5E80027B370 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchView.swift; path = Paris/View/SearchView.swift; sourceTree = SOURCE_ROOT; };
 		E9E58CF328CD0DB5005BDAE8 /* Paris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E58CF628CD0DB5005BDAE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9E58CF828CD0DB5005BDAE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E9DB9E6028D2A0F00027B370 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9DB9E6128D2A5E80027B370 /* SearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E9E58CEA28CD0DB5005BDAE8 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 			children = (
 				E9E58CF628CD0DB5005BDAE8 /* AppDelegate.swift */,
 				E9E58CF828CD0DB5005BDAE8 /* SceneDelegate.swift */,
+				E9DB9E6028D2A0F00027B370 /* View */,
 				E9182EAD28D004EA0071EB69 /* Model */,
 				E9182EAC28D004D00071EB69 /* Controllers */,
 				E9E58CFF28CD0DB6005BDAE8 /* Assets.xcassets */,
@@ -206,6 +217,7 @@
 				E9182EAF28D006FA0071EB69 /* TabBarController.swift in Sources */,
 				E94851A228D0AF610032DBDC /* Restaurant+Restaurants.swift in Sources */,
 				E9E58CF728CD0DB5005BDAE8 /* AppDelegate.swift in Sources */,
+				E9DB9E6228D2A5E80027B370 /* SearchView.swift in Sources */,
 				E9370BC428D0B6D300FD4344 /* ProfileViewController.swift in Sources */,
 				E9182EB328D007A00071EB69 /* SavedViewController.swift in Sources */,
 				E9E58CF928CD0DB5005BDAE8 /* SceneDelegate.swift in Sources */,
