@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
     let bestEvaluatedCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 270, height: 186)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(BestEvaluatedCollectionViewCell.self, forCellWithReuseIdentifier: BestEvaluatedCollectionViewCell.cellIdentifier)
@@ -136,7 +136,7 @@ class HomeViewController: UIViewController {
     let closeToYouCollectionView:  UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 163, height: 186)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
         layout.scrollDirection = .horizontal
         var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CloseToYouCollectionViewCell.self, forCellWithReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier)
@@ -160,7 +160,7 @@ class HomeViewController: UIViewController {
     let familyPlacesCollectionView:  UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 163, height: 186)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
         layout.scrollDirection = .horizontal
         var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(FamilyPlacesCollectionViewCell.self, forCellWithReuseIdentifier: FamilyPlacesCollectionViewCell.cellIdentifier)
@@ -250,6 +250,7 @@ class HomeViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         closeToYouCollectionView.translatesAutoresizingMaskIntoConstraints = false
+    
         
         
 
@@ -280,9 +281,16 @@ class HomeViewController: UIViewController {
             segmentedControl.heightAnchor.constraint(equalToConstant: 42)
             
         ])
+        
+        // Best Evaluated Label
+        NSLayoutConstraint.activate([
+            lbBestEvaluated.topAnchor.constraint(equalTo: stackView.topAnchor),
+            lbBestEvaluated.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16)
+        ])
+        
         // Stack view
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 40),
+            stackView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
