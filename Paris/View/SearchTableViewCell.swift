@@ -30,7 +30,7 @@ class SearchTableViewCell: UITableViewCell {
     
     lazy var lbName: UILabel = {
         let label: UILabel = UILabel()
-        label.font = .systemFont(ofSize: 17, weight: .semibold)
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.numberOfLines = 0
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -61,37 +61,46 @@ class SearchTableViewCell: UITableViewCell {
     
     func changingAttributes(){
         
-//        self.addSubview(starStack)
-//        self.addSubview(lbName)
-//        self.addSubview(ivSearchCell)
-//        
-//        starStack.addArrangedSubview(ivStar)
-//        starStack.addArrangedSubview(lbRating)
-//        
-//        ivSearchCell.layer.cornerRadius = 8
+        // self.addSubview(starStack)
+        self.addSubview(lbName)
+        self.addSubview(ivSearchCell)
+        self.addSubview(ivStar)
+        self.addSubview(lbRating)
+        
+        //starStack.addArrangedSubview(ivStar)
+        //starStack.addArrangedSubview(lbRating)
+        
+        ivSearchCell.layer.cornerRadius = 8
         
         
     }
     
     func settingConstraints(){
         
-//        NSLayoutConstraint.activate([
-//            // ivStar
-//            ivStar.heightAnchor.constraint(equalToConstant: 20),
-//            ivStar.widthAnchor.constraint(equalToConstant: 20),
-//            // stack
-//            starStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 8),
-//            starStack.leadingAnchor.constraint(equalTo: lbName.leadingAnchor),
-//            // lb
-//            lbName.topAnchor.constraint(equalTo: ivSearchCell.topAnchor),
-//            lbName.leadingAnchor.constraint(equalTo: ivSearchCell.trailingAnchor, constant: 8),
-//            // iv
-//            ivSearchCell.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
-//            ivSearchCell.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
-//            ivSearchCell.heightAnchor.constraint(equalToConstant: 55),
-//            ivSearchCell.widthAnchor.constraint(equalToConstant: 65),
-//
-//        ])
+        NSLayoutConstraint.activate([
+            
+            // iv
+            ivSearchCell.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            ivSearchCell.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+            ivSearchCell.heightAnchor.constraint(equalToConstant: 55),
+            ivSearchCell.widthAnchor.constraint(equalToConstant: 65),
+            // lb
+            lbName.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            lbName.leadingAnchor.constraint(equalTo: ivSearchCell.trailingAnchor, constant: 8),
+            // ivStar
+            ivStar.heightAnchor.constraint(equalToConstant: 17),
+            ivStar.widthAnchor.constraint(equalToConstant: 17),
+            ivStar.leadingAnchor.constraint(equalTo: ivSearchCell.trailingAnchor, constant: 8),
+            ivStar.topAnchor.constraint(equalTo: lbName.bottomAnchor, constant: 8),
+            // lb rating
+            lbRating.leadingAnchor.constraint(equalTo: ivStar.trailingAnchor, constant: 4),
+            lbRating.topAnchor.constraint(equalTo: lbName.bottomAnchor, constant: 8)
+            // stack
+//            starStack.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 50),
+//            starStack.leadingAnchor.constraint(equalTo: ivSearchCell.trailingAnchor, constant: 8)
+           
+
+        ])
         
         
     }

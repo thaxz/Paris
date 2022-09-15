@@ -18,7 +18,9 @@ extension SearchViewController: UITableViewDataSource {
         
         let cell = searchView.searchTableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.id, for: indexPath) as! SearchTableViewCell
         
-        cell.backgroundColor = UIColor(named: "redMain")
+        cell.backgroundColor = .white
+        cell.setUp(image: UIImage(named: "ivDishNoKasquin")!, name: "tico teco", rating: "3.0")
+        cell.selectionStyle = .none
         
         return cell
     }
