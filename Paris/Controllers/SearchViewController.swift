@@ -28,9 +28,6 @@ class SearchViewController: UIViewController {
         self.view = searchView
         setUpController()
     }
-    
- 
-    
  
     
     func setUpController(){
@@ -38,6 +35,10 @@ class SearchViewController: UIViewController {
         // Title
         self.navigationItem.title = "O que você procura?"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        // Setting up tableview
+        searchView.searchTableView.delegate = self
+        searchView.searchTableView.dataSource = self
         
         // Setting up searchController
         
@@ -56,6 +57,7 @@ extension SearchViewController: UISearchResultsUpdating {
         
         searchView.stackLbSearch.isHidden = true
         searchView.viewIvSearch.isHidden = true
+        searchView.searchTableView.isHidden = false
         
         guard let title = searchController.searchBar.text else {return}
         

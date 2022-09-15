@@ -47,6 +47,21 @@ class SearchView: UIView {
         return label
     }()
     
+    lazy var searchTableView: UITableView = {
+        let tableView = UITableView()
+        
+        tableView.separatorColor = UIColor(named: "halfBlackMain")
+        tableView.backgroundColor = .white
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .singleLine
+        
+        tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.id)
+        
+        return tableView
+        
+    }()
+    
     // Views and stacks to help on autolayout
     
     let viewIvSearch = UIView()
@@ -69,6 +84,8 @@ class SearchView: UIView {
         
         // MARK: Adding components
         // View
+        //self.addSubview(searchTableView)
+        
         self.addSubview(stackGeneral)
         // Things on theirs containers
         viewIvSearch.addSubview(ivSearch)
@@ -82,6 +99,7 @@ class SearchView: UIView {
     
     func changingAttributes(){
         
+        searchTableView.isHidden = true
         
         stackLbSearch.axis = .vertical
         stackLbSearch.alignment = .center
@@ -101,6 +119,7 @@ class SearchView: UIView {
         // Stack general
         stackGeneral.translatesAutoresizingMaskIntoConstraints = false
         stackLbSearch.translatesAutoresizingMaskIntoConstraints = false
+        searchTableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             // stack general
@@ -117,6 +136,12 @@ class SearchView: UIView {
             stackLbSearch.topAnchor.constraint(equalTo: ivSearch.bottomAnchor, constant: 0),
             //
             lbSearch.topAnchor.constraint(equalTo: stackLbSearch.topAnchor),
+            //
+//            searchTableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 74),
+//            searchTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+//            searchTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+//            searchTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
+            
             
         ])
         
@@ -131,6 +156,7 @@ class SearchView: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.endEditing(true)
+        
         
         stackLbSearch.isHidden = false
         viewIvSearch.isHidden = false
