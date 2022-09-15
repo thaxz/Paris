@@ -27,6 +27,22 @@ class SearchViewController: UIViewController {
 
         self.view = searchView
         setUpController()
+        
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        searchView.stackGeneral.isHidden = false
+        searchView.searchTableView.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationItem.hidesSearchBarWhenScrolling = true
+        
     }
  
     
@@ -45,6 +61,7 @@ class SearchViewController: UIViewController {
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search"
+        
     }
 
 }
@@ -55,8 +72,7 @@ extension SearchViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        searchView.stackLbSearch.isHidden = true
-        searchView.viewIvSearch.isHidden = true
+        searchView.stackGeneral.isHidden = true
         searchView.searchTableView.isHidden = false
         
         guard let title = searchController.searchBar.text else {return}
