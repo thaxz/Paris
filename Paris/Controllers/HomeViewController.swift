@@ -115,7 +115,6 @@ class HomeViewController: UIViewController {
         stack.alignment = .fill
         stack.distribution = .fill
         stack.spacing = 16
-        stack.backgroundColor = .green
         
         return stack
     }()
@@ -128,7 +127,6 @@ class HomeViewController: UIViewController {
         stack.alignment = .fill
         stack.distribution = .fill
         stack.spacing = 16
-        stack.backgroundColor = .systemPink
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -141,7 +139,6 @@ class HomeViewController: UIViewController {
         var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CloseToYouCollectionViewCell.self, forCellWithReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier)
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .blue
         return collectionView
     }()
     
@@ -152,7 +149,6 @@ class HomeViewController: UIViewController {
         stack.distribution = .fill
         stack.spacing = 16
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.backgroundColor = .cyan
         return stack
     }()
     
@@ -165,7 +161,6 @@ class HomeViewController: UIViewController {
         var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(FamilyPlacesCollectionViewCell.self, forCellWithReuseIdentifier: FamilyPlacesCollectionViewCell.cellIdentifier)
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .red
         return collectionView
     }()
     
@@ -250,11 +245,11 @@ class HomeViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         closeToYouCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        btSeeAll.translatesAutoresizingMaskIntoConstraints = false
+        btSeeAllFamilyPlaces.translatesAutoresizingMaskIntoConstraints = false
     
-        
-        
 
-        
         // MARK: Array das constraints
         
         // Scroll View
@@ -298,13 +293,24 @@ class HomeViewController: UIViewController {
         
         // Collection View Best Evaluated
         NSLayoutConstraint.activate([
-            bestEvaluatedCollectionView.heightAnchor.constraint(equalToConstant: 240),
+            bestEvaluatedCollectionView.heightAnchor.constraint(equalToConstant: 186),
             closeToYouCollectionView.heightAnchor.constraint(equalToConstant: 186),
             familyPlacesCollectionView.heightAnchor.constraint(equalToConstant: 186)
         
         ])
-
+//
+//        // Botão
+//        NSLayoutConstraint.activate([
+//            btSeeAll.topAnchor.constraint(equalTo: closeToYouStackView.topAnchor),
+//            btSeeAll.trailingAnchor.constraint(equalTo: closeToYouStackView.trailingAnchor, constant: -20)
+//        ])
         
+        
+        NSLayoutConstraint.activate([
+            closeToYouStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -16),
+            familyPlacesStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -16)
+        
+        ])
     }
     
     // MARK: - Configuração dos botões

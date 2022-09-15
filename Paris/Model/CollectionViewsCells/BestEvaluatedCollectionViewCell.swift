@@ -76,7 +76,6 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "R$80-100"
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        //label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
     }()
     
