@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DDBDDBF28D412FE00DB3C29 /* IconTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBDDBE28D412FE00DB3C29 /* IconTextLabel.swift */; };
 		E9182EAF28D006FA0071EB69 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EAE28D006FA0071EB69 /* TabBarController.swift */; };
 		E9182EB128D007920071EB69 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EB028D007920071EB69 /* SearchViewController.swift */; };
 		E9182EB328D007A00071EB69 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EB228D007A00071EB69 /* SavedViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DDBDDBE28D412FE00DB3C29 /* IconTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextLabel.swift; sourceTree = "<group>"; };
 		E9182EAE28D006FA0071EB69 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E9182EB028D007920071EB69 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E9182EB228D007A00071EB69 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DDBDDBD28D412BE00DB3C29 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0DDBDDBE28D412FE00DB3C29 /* IconTextLabel.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		E9182EAC28D004D00071EB69 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +137,7 @@
 		E9E58CF528CD0DB5005BDAE8 /* Paris */ = {
 			isa = PBXGroup;
 			children = (
+				0DDBDDBD28D412BE00DB3C29 /* Components */,
 				E9E58CF628CD0DB5005BDAE8 /* AppDelegate.swift */,
 				E9E58CF828CD0DB5005BDAE8 /* SceneDelegate.swift */,
 				E9DB9E6028D2A0F00027B370 /* View */,
@@ -223,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DDBDDBF28D412FE00DB3C29 /* IconTextLabel.swift in Sources */,
 				E948519E28D0A6AA0032DBDC /* Restaurant.swift in Sources */,
 				E9E58CFB28CD0DB5005BDAE8 /* HomeViewController.swift in Sources */,
 				E9182EB728D0118E0071EB69 /* ExtensionUIImage.swift in Sources */,

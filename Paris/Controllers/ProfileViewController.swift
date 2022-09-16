@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController {
     let aboutScrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 568)
-        //scroll.showsVerticalScrollIndicator = false
+        scroll.showsVerticalScrollIndicator = false
         return scroll
     }()
     
@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController {
     // Review
     let reviewScrollView: UIScrollView = {
         let scroll = UIScrollView()
-        scroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 568)
+        scroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 500)
         scroll.backgroundColor = .blue
         // scroll.showsVerticalScrollIndicator = false
         return scroll
@@ -107,16 +107,106 @@ class ProfileViewController: UIViewController {
         return label
     }()
     
+    let aboutDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "O Pina Cocktail & Co. é o primeiro speakeasy (bar secreto) do nordeste. Somos uma bar de ambiente pequeno e intimista. Entrada apenas com reservas."
+        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.numberOfLines = 0
+        label.sizeToFit()
+        return label
+    }()
     
+    let phoneStack: IconTextLabel = {
+        let icon = "phone.fill"
+        let text = "(81) 99216-7329"
+        let stack = IconTextLabel(withIcon: icon, andText: text)
+        stack.setIcon(withColor: .black)
+        return stack
+    }()
+
+    let aboutPhoneLabel: UILabel = {
+        let label = UILabel()
+        label.text = "O Pina Cocktail & Co. é o primeiro speakeasy (bar secreto) do nordeste. Somos uma bar de ambiente pequeno e intimista. Entrada apenas com reservas."
+        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.numberOfLines = 0
+        label.sizeToFit()
+        return label
+    }()
+    
+    let placeOffer: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.text = "O que esse lugar oferece"
+        return label
+    }()
+    
+    let allOffer: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 16
+        stack.distribution = .fillEqually
+        stack.alignment = .fill
+        return stack
+    }()
+    
+    let firstOffer = UIView()
+    let secondOffer = UIView()
+    let thirdOffer = UIView()
+    let fourthOffer = UIView()
+    
+    let firstStackOffer: IconTextLabel = {
+        let icon = "wifi"
+        let text =  "Wi-fi gratuito"
+        let stack = IconTextLabel(withIcon: icon, andText: text)
+        stack.setIcon(withColor: .black)
+        return stack
+    }()
+    
+    let secondStackOffer: IconTextLabel = {
+        let icon = "book.closed.fill"
+        let text = "Reservas"
+        let stack = IconTextLabel(withIcon: icon, andText: text)
+        stack.setIcon(withColor: .black)
+        return stack
+    }()
+    
+    let thirdStackOffer: IconTextLabel = {
+        let icon = "takeoutbag.and.cup.and.straw.fill"
+        let text = "Delivery"
+        let stack = IconTextLabel(withIcon: icon, andText: text)
+        stack.setIcon(withColor: .black)
+        return stack
+    }()
+    
+    let fourthStackOffer: IconTextLabel = {
+        let icon = "leaf.fill"
+        let text = "Vegan"
+        let stack = IconTextLabel(withIcon: icon, andText: text)
+        stack.setIcon(withColor: .black)
+        return stack
+    }()
+    
+    let location: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.text = "Localização"
+        return label
+    }()
+    
+    let adress: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.numberOfLines = 0
+        label.sizeToFit()
+        label.text = "Rua Jeremias Bastos, Pina - Recife"
+        return label
+    }()
     
     let profileContainer = UIView()
-    
     let aboutContainer = UIView()
-    
     var needToAppear: [Bool] = [true, true, true]
-    
     var scrollViews: [UIScrollView]?
-    
+
     // Segmented control
     
     let segmentedControl: UISegmentedControl = {
@@ -132,7 +222,7 @@ class ProfileViewController: UIViewController {
         // Retornando a segmented com as operações já aplicadas
         return segmented
     }()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,7 +233,6 @@ class ProfileViewController: UIViewController {
             reviewScrollView
         ]
         changeScrollViewBySegmentedIndex()
-        
     }
     
     // Função que é chamada quando o valor da segmented é alterado
@@ -187,10 +276,7 @@ class ProfileViewController: UIViewController {
         self.view.addSubview(profileStack)
         profileStack.addArrangedSubview(profileContainer)
         profileStack.addArrangedSubview(aboutContainer)
-        
-        //ok
-        
-        
+                
         profileContainer.addSubview(posterImage)
         profileContainer.addSubview(placeStack)
         
@@ -215,6 +301,25 @@ class ProfileViewController: UIViewController {
         aboutScrollView.addSubview(descriptionView)
         aboutScrollView.addSubview(resourcesView)
         aboutScrollView.addSubview(locationView)
+        
+        descriptionView.addSubview(aboutDescriptionLabel)
+        descriptionView.addSubview(phoneStack)
+        
+        resourcesView.addSubview(placeOffer)
+        resourcesView.addSubview(allOffer)
+        
+        allOffer.addArrangedSubview(firstOffer)
+        allOffer.addArrangedSubview(secondOffer)
+        allOffer.addArrangedSubview(thirdOffer)
+        allOffer.addArrangedSubview(fourthOffer)
+        
+        firstOffer.addSubview(firstStackOffer)
+        secondOffer.addSubview(secondStackOffer)
+        thirdOffer.addSubview(thirdStackOffer)
+        fourthOffer.addSubview(fourthStackOffer)
+        
+        locationView.addSubview(location)
+        locationView.addSubview(adress)
     }
     
     // MARK: - Ajustando constraints
@@ -328,6 +433,83 @@ class ProfileViewController: UIViewController {
             reviewScrollView.trailingAnchor.constraint(equalTo: aboutContainer.trailingAnchor),
             reviewScrollView.bottomAnchor.constraint(equalTo: aboutContainer.bottomAnchor)
         ])
+                
+        aboutDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            aboutDescriptionLabel.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 24),
+            aboutDescriptionLabel.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 24),
+            aboutDescriptionLabel.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -24),
+        ])
+        
+        phoneStack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            phoneStack.topAnchor.constraint(equalTo: aboutDescriptionLabel.bottomAnchor, constant: 24),
+            phoneStack.leadingAnchor.constraint(equalTo: aboutDescriptionLabel.leadingAnchor),
+            phoneStack.trailingAnchor.constraint(equalTo: aboutDescriptionLabel.trailingAnchor),
+            phoneStack.heightAnchor.constraint(equalToConstant: 24)
+        ])
+        
+        placeOffer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            placeOffer.topAnchor.constraint(equalTo: resourcesView.topAnchor),
+            placeOffer.leadingAnchor.constraint(equalTo: resourcesView.leadingAnchor, constant: 24)
+        ])
+        
+        allOffer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            allOffer.topAnchor.constraint(equalTo: placeOffer.bottomAnchor, constant: 24),
+            allOffer.leadingAnchor.constraint(equalTo: resourcesView.leadingAnchor, constant: 24),
+            allOffer.trailingAnchor.constraint(equalTo: resourcesView.trailingAnchor, constant: -24),
+            allOffer.bottomAnchor.constraint(equalTo: resourcesView.bottomAnchor)
+        ])
+        
+        firstStackOffer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            firstStackOffer.topAnchor.constraint(equalTo: firstOffer.topAnchor),
+            firstStackOffer.leadingAnchor.constraint(equalTo: firstOffer.leadingAnchor),
+            firstStackOffer.trailingAnchor.constraint(equalTo: firstOffer.trailingAnchor),
+            firstStackOffer.bottomAnchor.constraint(equalTo: firstOffer.bottomAnchor)
+        ])
+        
+        secondStackOffer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            secondStackOffer.topAnchor.constraint(equalTo: secondOffer.topAnchor),
+            secondStackOffer.leadingAnchor.constraint(equalTo: secondOffer.leadingAnchor),
+            secondStackOffer.trailingAnchor.constraint(equalTo: secondOffer.trailingAnchor),
+            secondStackOffer.bottomAnchor.constraint(equalTo: secondOffer.bottomAnchor)
+        ])
+        
+        thirdStackOffer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            thirdStackOffer.topAnchor.constraint(equalTo: thirdOffer.topAnchor),
+            thirdStackOffer.leadingAnchor.constraint(equalTo: thirdOffer.leadingAnchor),
+            thirdStackOffer.trailingAnchor.constraint(equalTo: thirdOffer.trailingAnchor),
+            thirdStackOffer.bottomAnchor.constraint(equalTo: thirdOffer.bottomAnchor)
+        ])
+        
+        fourthStackOffer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fourthStackOffer.topAnchor.constraint(equalTo: fourthOffer.topAnchor),
+            fourthStackOffer.leadingAnchor.constraint(equalTo: fourthOffer.leadingAnchor),
+            fourthStackOffer.trailingAnchor.constraint(equalTo: fourthOffer.trailingAnchor),
+            fourthStackOffer.bottomAnchor.constraint(equalTo: fourthOffer.bottomAnchor)
+        ])
+        
+        location.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            location.topAnchor.constraint(equalTo: locationView.topAnchor, constant: 26),
+            location.leadingAnchor.constraint(equalTo: locationView.leadingAnchor, constant: 24),
+            location.trailingAnchor.constraint(equalTo: locationView.trailingAnchor, constant: -24),
+        ])
+        
+        adress.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            adress.topAnchor.constraint(equalTo: location.bottomAnchor, constant: 8),
+            adress.leadingAnchor.constraint(equalTo: location.leadingAnchor),
+            adress.trailingAnchor.constraint(equalTo: location.trailingAnchor)
+        ])
+        
+        
     }
     
     // MARK: - Configuração dos botões
