@@ -33,7 +33,6 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
     // MARK: - Inicializando componentes configurados
     let ivBestPlace: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "place")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +41,7 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
     
     let lbName: UILabel = {
         let name = UILabel()
-        name.text = "nome do lugar"
+        //name.text = "nome do lugar"
         name.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         name.numberOfLines = 0
         return name
@@ -58,7 +57,7 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
     
     let lbRating: UILabel = {
         let label = UILabel()
-        label.text = "4.7"
+        // label.text = "4.7"
         label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
@@ -114,7 +113,9 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
             ivRating.heightAnchor.constraint(equalToConstant: 20),
-            ivRating.widthAnchor.constraint(equalToConstant: 20)
+            ivRating.widthAnchor.constraint(equalToConstant: 20),
+            ivBestPlace.heightAnchor.constraint(equalToConstant: 132)
+            
             
             
         ])

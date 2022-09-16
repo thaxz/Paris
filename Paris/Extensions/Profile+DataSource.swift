@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// Colocar os pertinhos aqui
+
 extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -17,16 +19,33 @@ extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = closeToYouCollectionView.dequeueReusableCell(withReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier, for: indexPath) as! CloseToYouCollectionViewCell
+        if collectionView == closeRestaurantsCollectionView {
         
-        cell.setup(name: "fodase",
+        let cell = closeRestaurantsCollectionView.dequeueReusableCell(withReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier, for: indexPath) as! CloseToYouCollectionViewCell
+        
+        cell.setup(name: "restaurante",
                    priceInfo: "",
                    rating: "5.0",
                    distance: "",
                    image: UIImage(named: "ivMainLaPecora")!)
         
         return cell
+            
+        } else if collectionView == closeToursCollectionView {
+            
+            let cell = closeRestaurantsCollectionView.dequeueReusableCell(withReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier, for: indexPath) as! CloseToYouCollectionViewCell
+            
+            cell.setup(name: "passeio",
+                       priceInfo: "",
+                       rating: "5.0",
+                       distance: "",
+                       image: UIImage(named: "ivMainThorpes")!)
+            
+            return cell
+            
+        }
         
+        return UICollectionViewCell()
         
     }
     

@@ -62,7 +62,18 @@ class ProfileViewController: UIViewController {
     
     let closeView = UIView()
     
-    let closeToYouCollectionView:  UICollectionView = {
+    let closeRestaurantsCollectionView:  UICollectionView = {
+            let layout = UICollectionViewFlowLayout()
+            layout.itemSize = CGSize(width: 163, height: 186)
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+            layout.scrollDirection = .horizontal
+            var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            collectionView.register(CloseToYouCollectionViewCell.self, forCellWithReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier)
+            collectionView.showsHorizontalScrollIndicator = false
+            return collectionView
+        }()
+    
+    let closeToursCollectionView:  UICollectionView = {
             let layout = UICollectionViewFlowLayout()
             layout.itemSize = CGSize(width: 163, height: 186)
             layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
@@ -75,8 +86,11 @@ class ProfileViewController: UIViewController {
     
     func settingCollections(){
         // close to you collection 
-        closeToYouCollectionView.delegate = self
-        closeToYouCollectionView.dataSource = self
+        closeRestaurantsCollectionView.delegate = self
+        closeRestaurantsCollectionView.dataSource = self
+        
+        closeToursCollectionView.dataSource = self
+        closeToursCollectionView.delegate = self
         
     }
     
@@ -223,7 +237,7 @@ class ProfileViewController: UIViewController {
     let aboutContainer = UIView()
     var needToAppear: [Bool] = [true, true, true]
     var scrollViews: [UIScrollView]?
-    let familyView = UIView()
+    let closeTourView = UIView()
 
     // Segmented control
     
@@ -292,9 +306,8 @@ class ProfileViewController: UIViewController {
         locationView.frame = CGRect(x: 0, y: 2*height, width: width, height: height)
         
         closeView.frame = CGRect(x: 0, y: 0, width: width, height: nearHeight)
-        familyView.frame = CGRect(x: 0, y: nearHeight, width: width, height: nearHeight)
+        closeTourView.frame = CGRect(x: 0, y: nearHeight, width: width, height: nearHeight)
         
-        familyView.backgroundColor = .yellow
     }
 
     // MARK: - Ajustando hierarquia
@@ -334,9 +347,11 @@ class ProfileViewController: UIViewController {
         // MARK: - AQUI
         
         nearScrollView.addSubview(closeView)
-        nearScrollView.addSubview(familyView)
+        nearScrollView.addSubview(closeTourView)
         
-        closeView.addSubview(closeToYouCollectionView)
+        closeView.addSubview(closeRestaurantsCollectionView)
+        closeTourView.addSubview(closeToursCollectionView)
+        
         
         descriptionView.addSubview(aboutDescriptionLabel)
         descriptionView.addSubview(phoneStack)
@@ -466,15 +481,27 @@ class ProfileViewController: UIViewController {
         
         // MARK: AQUI
         
-        closeToYouCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        closeRestaurantsCollectionView.translatesAutoresizingMaskIntoConstraints = false
     
 
         NSLayoutConstraint.activate([
 
-            closeToYouCollectionView.topAnchor.constraint(equalTo: closeView.topAnchor, constant: 24),
-            closeToYouCollectionView.leadingAnchor.constraint(equalTo: closeView.leadingAnchor, constant: 24),
-            closeToYouCollectionView.trailingAnchor.constraint(equalTo: closeView.trailingAnchor, constant: -24),
-            closeToYouCollectionView.heightAnchor.constraint(equalToConstant: 186)
+            closeRestaurantsCollectionView.topAnchor.constraint(equalTo: closeView.topAnchor, constant: 24),
+            closeRestaurantsCollectionView.leadingAnchor.constraint(equalTo: closeView.leadingAnchor, constant: 24),
+            closeRestaurantsCollectionView.trailingAnchor.constraint(equalTo: closeView.trailingAnchor, constant: -24),
+            closeRestaurantsCollectionView.heightAnchor.constraint(equalToConstant: 186)
+
+        ])
+        
+        closeToursCollectionView.translatesAutoresizingMaskIntoConstraints = false
+    
+
+        NSLayoutConstraint.activate([
+
+            closeToursCollectionView.topAnchor.constraint(equalTo: closeTourView.topAnchor, constant: 24),
+            closeToursCollectionView.leadingAnchor.constraint(equalTo: closeTourView.leadingAnchor, constant: 24),
+            closeToursCollectionView.trailingAnchor.constraint(equalTo: closeTourView.trailingAnchor, constant: -24),
+            closeToursCollectionView.heightAnchor.constraint(equalToConstant: 186)
 
         ])
         
