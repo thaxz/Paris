@@ -28,15 +28,7 @@ class ProfileViewController: UIViewController {
         stack.alignment = .fill
         return stack
     }()
-    
-    let aboutStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.alignment = .fill
-        stack.distribution = .fill
-        return stack
-    }()
-    
+        
     // MARK: Scrolls
     // Sobre
     let aboutScrollView: UIScrollView = {
@@ -45,6 +37,7 @@ class ProfileViewController: UIViewController {
         //scroll.showsVerticalScrollIndicator = false
         return scroll
     }()
+    
     // Pertinho
     let nearScrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -177,6 +170,16 @@ class ProfileViewController: UIViewController {
             scroll.isHidden = needToAppear[index]
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let height = CGFloat(568/3)
+        let width = UIScreen.main.bounds.width
+        
+        descriptionView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        resourcesView.frame = CGRect(x: 0, y: height, width: width, height: height)
+        locationView.frame = CGRect(x: 0, y: 2*height, width: width, height: height)
+    }
 
     // MARK: - Ajustando hierarquia
     
@@ -184,6 +187,8 @@ class ProfileViewController: UIViewController {
         self.view.addSubview(profileStack)
         profileStack.addArrangedSubview(profileContainer)
         profileStack.addArrangedSubview(aboutContainer)
+        
+        //ok
         
         
         profileContainer.addSubview(posterImage)
@@ -206,17 +211,10 @@ class ProfileViewController: UIViewController {
         
         placeInfoStack.addArrangedSubview(star)
         placeInfoStack.addArrangedSubview(infoContent)
-        
-        aboutScrollView.addSubview(aboutStackView)
-        
-        aboutStackView.addArrangedSubview(descriptionView)
-        aboutStackView.addArrangedSubview(resourcesView)
-        aboutStackView.addArrangedSubview(locationView)
-        
-        descriptionView.backgroundColor = .red
-        resourcesView.backgroundColor = .blue
-        locationView.backgroundColor = .green
-        
+                
+        aboutScrollView.addSubview(descriptionView)
+        aboutScrollView.addSubview(resourcesView)
+        aboutScrollView.addSubview(locationView)
     }
     
     // MARK: - Ajustando constraints
@@ -231,29 +229,7 @@ class ProfileViewController: UIViewController {
             profileStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             profileStack.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
-        aboutScrollView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            aboutScrollView.topAnchor.constraint(equalTo: aboutContainer.topAnchor),
-            aboutScrollView.leadingAnchor.constraint(equalTo: aboutContainer.leadingAnchor),
-            aboutScrollView.trailingAnchor.constraint(equalTo: aboutContainer.trailingAnchor),
-            aboutScrollView.bottomAnchor.constraint(equalTo: aboutContainer.bottomAnchor)
-            
-        ])
-        
-        nearScrollView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            nearScrollView.topAnchor.constraint(equalTo: aboutContainer.topAnchor),
-            nearScrollView.leadingAnchor.constraint(equalTo: aboutContainer.leadingAnchor),
-            nearScrollView.trailingAnchor.constraint(equalTo: aboutContainer.trailingAnchor),
-            nearScrollView.bottomAnchor.constraint(equalTo: aboutContainer.bottomAnchor)
                 
-        ])
-        
-        reviewScrollView.translatesAutoresizingMaskIntoConstraints = false
-        
         profileContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             profileContainer.heightAnchor.constraint(equalTo: profileStack.heightAnchor, multiplier: 0.45)
@@ -264,13 +240,7 @@ class ProfileViewController: UIViewController {
             aboutContainer.heightAnchor.constraint(equalTo: profileStack.heightAnchor, multiplier: 0.55)
         ])
         
-        NSLayoutConstraint.activate([
-            reviewScrollView.topAnchor.constraint(equalTo: aboutContainer.topAnchor),
-            reviewScrollView.leadingAnchor.constraint(equalTo: aboutContainer.leadingAnchor),
-            reviewScrollView.trailingAnchor.constraint(equalTo: aboutContainer.trailingAnchor),
-            reviewScrollView.bottomAnchor.constraint(equalTo: aboutContainer.bottomAnchor)
-        ])
-        
+  
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             segmentedControl.centerXAnchor.constraint(equalTo: profileContainer.centerXAnchor),
@@ -331,23 +301,32 @@ class ProfileViewController: UIViewController {
             star.widthAnchor.constraint(equalToConstant: 17)
         ])
         
-        aboutStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        aboutScrollView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            aboutStackView.topAnchor.constraint(equalTo: aboutScrollView.topAnchor),
-            aboutStackView.leadingAnchor.constraint(equalTo: aboutScrollView.leadingAnchor),
-            aboutStackView.trailingAnchor.constraint(equalTo: aboutScrollView.trailingAnchor),
-            aboutStackView.bottomAnchor.constraint(equalTo: aboutScrollView.bottomAnchor)
+            aboutScrollView.topAnchor.constraint(equalTo: aboutContainer.topAnchor),
+            aboutScrollView.leadingAnchor.constraint(equalTo: aboutContainer.leadingAnchor),
+            aboutScrollView.trailingAnchor.constraint(equalTo: aboutContainer.trailingAnchor),
+            aboutScrollView.bottomAnchor.constraint(equalTo: aboutContainer.bottomAnchor)
         ])
         
-        descriptionView.translatesAutoresizingMaskIntoConstraints = false
+        nearScrollView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            descriptionView.topAnchor.constraint(equalTo: aboutStackView.topAnchor),
-            descriptionView.heightAnchor.constraint(equalTo: aboutStackView.heightAnchor, multiplier: 1/3),
-            descriptionView.leadingAnchor.constraint(equalTo: aboutStackView.leadingAnchor),
-            descriptionView.trailingAnchor.constraint(equalTo: aboutStackView.trailingAnchor)
-            
+            nearScrollView.topAnchor.constraint(equalTo: aboutContainer.topAnchor),
+            nearScrollView.leadingAnchor.constraint(equalTo: aboutContainer.leadingAnchor),
+            nearScrollView.trailingAnchor.constraint(equalTo: aboutContainer.trailingAnchor),
+            nearScrollView.bottomAnchor.constraint(equalTo: aboutContainer.bottomAnchor)
+        ])
+        
+        reviewScrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            reviewScrollView.topAnchor.constraint(equalTo: aboutContainer.topAnchor),
+            reviewScrollView.leadingAnchor.constraint(equalTo: aboutContainer.leadingAnchor),
+            reviewScrollView.trailingAnchor.constraint(equalTo: aboutContainer.trailingAnchor),
+            reviewScrollView.bottomAnchor.constraint(equalTo: aboutContainer.bottomAnchor)
         ])
     }
     
