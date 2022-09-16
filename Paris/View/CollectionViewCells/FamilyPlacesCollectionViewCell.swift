@@ -1,23 +1,23 @@
 //
-//  BestEvaluatedCollectionViewCell.swift
+//  FamilyPlacesCollectionViewCell.swift
 //  Paris
 //
-//  Created by thaxz on 15/09/22.
+//  Created by thaxz on 16/09/22.
 //
 
 import UIKit
 
-class BestEvaluatedCollectionViewCell: UICollectionViewCell {
-    static let cellIdentifier = "bestEvaluatedCollectionViewCell"
+class FamilyPlacesCollectionViewCell: UICollectionViewCell {
+    static let cellIdentifier = "FamilyPlacesCollectionViewCell"
     
     // MARK: - Inicializando stack views configuradas
-    
     let stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .fill
         stack.spacing = 8
+
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -43,7 +43,7 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
     // MARK: - Inicializando componentes configurados
     let ivBestPlace: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "ivDishLaPecora")
+        imageView.image = UIImage(named: "place")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,13 +87,6 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    let lbDistance: UILabel = {
-        let label = UILabel()
-        label.text = "0.6km"
-        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-
-        return label
-    }()
     
     //MARK: - Inicialização da célula
     
@@ -117,11 +110,11 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
         stackView.addArrangedSubview(titleStackView)
         stackView.addArrangedSubview(priceStackView)
         titleStackView.addArrangedSubview(lbName)
-        titleStackView.addArrangedSubview(ivRating)
-        titleStackView.addArrangedSubview(lbRating)
+        priceStackView.addArrangedSubview(ivRating)
+        priceStackView.addArrangedSubview(lbRating)
         priceStackView.addArrangedSubview(lbPriceInfo)
         priceStackView.addArrangedSubview(lbSymbol)
-        priceStackView.addArrangedSubview(lbDistance)
+        priceStackView.addArrangedSubview(lbPriceInfo)
     }
     // MARK: - Configurando atributos
     
@@ -136,7 +129,11 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
             stackView.topAnchor.constraint(equalTo: self.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            ivRating.heightAnchor.constraint(equalToConstant: 20),
+            ivRating.widthAnchor.constraint(equalToConstant: 20)
+            
             
             
         ])
@@ -150,7 +147,6 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
         lbPriceInfo.text = priceInfo
         lbRating.text = rating
         lbName.text = name
-        lbDistance.text = distance
         self.ivBestPlace.layer.cornerRadius = 8
         
     }
@@ -162,11 +158,11 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
 import SwiftUI
 
 @available(iOS 13, *)
-struct BestEvaluatedCollectionViewCell_Preview: PreviewProvider {
+struct FamilyPlacesCollectionViewCell_Preview: PreviewProvider {
     static var previews: some View {
         // view controller using programmatic UI
         Group {
-            BestEvaluatedCollectionViewCell().showPreview().previewLayout(PreviewLayout.fixed(width: 253, height: 190))
+            FamilyPlacesCollectionViewCell().showPreview().previewLayout(PreviewLayout.fixed(width: 163, height: 186))
         }
     }
 }

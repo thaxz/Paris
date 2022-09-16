@@ -1,14 +1,15 @@
 //
-//  CloseToYouCollectionViewCell.swift
+//  BestEvaluatedCollectionViewCell.swift
 //  Paris
 //
-//  Created by thaxz on 15/09/22.
+//  Created by thaxz on 16/09/22.
 //
 
 import UIKit
 
-class CloseToYouCollectionViewCell: UICollectionViewCell {
-    static let cellIdentifier = "closeToYouCollectionViewCell"
+class BestEvaluatedCollectionViewCell: UICollectionViewCell {
+    
+    static let cellIdentifier = "bestEvaluatedCollectionViewCell"
     
     // MARK: - Inicializando stack views configuradas
     let stackView: UIStackView = {
@@ -18,6 +19,15 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
         stack.distribution = .fill
         stack.spacing = 8
         stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    let titleStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.distribution = .fill
+        stack.spacing = 0
         return stack
     }()
     
@@ -33,9 +43,10 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
     // MARK: - Inicializando componentes configurados
     let ivBestPlace: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "ivDishLaPecora")
+        imageView.image = UIImage(named: "place")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 4
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -64,6 +75,13 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    let lbPriceInfo: UILabel = {
+        let label = UILabel()
+        label.text = "R$80-100"
+        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        return label
+    }()
+    
     let lbSymbol: UILabel = {
         let label = UILabel()
         label.text = ""
@@ -75,6 +93,7 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = ""
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+
         return label
     }()
     
@@ -86,7 +105,6 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
         setHierarchy()
         changingAttributes()
         setUpConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -97,10 +115,12 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
     func setHierarchy() {
         self.addSubview(stackView)
         stackView.addArrangedSubview(ivBestPlace)
-        stackView.addArrangedSubview(lbName)
+        stackView.addArrangedSubview(titleStackView)
         stackView.addArrangedSubview(priceStackView)
-        priceStackView.addArrangedSubview(ivRating)
-        priceStackView.addArrangedSubview(lbRating)
+        titleStackView.addArrangedSubview(lbName)
+        titleStackView.addArrangedSubview(ivRating)
+        titleStackView.addArrangedSubview(lbRating)
+        priceStackView.addArrangedSubview(lbPriceInfo)
         priceStackView.addArrangedSubview(lbSymbol)
         priceStackView.addArrangedSubview(lbDistance)
     }
@@ -117,8 +137,10 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
             stackView.topAnchor.constraint(equalTo: self.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
+            ivRating.heightAnchor.constraint(equalToConstant: 20),
+            ivRating.widthAnchor.constraint(equalToConstant: 20)
             
         ])
         
@@ -128,6 +150,7 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
     func setup(name: String, priceInfo: String, rating: String, distance: String, image: UIImage) {
         
         ivBestPlace.image = image
+        lbPriceInfo.text = priceInfo
         lbRating.text = rating
         lbName.text = name
         lbDistance.text = distance
@@ -142,11 +165,11 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
 import SwiftUI
 
 @available(iOS 13, *)
-struct CloseToYouCollectionViewCell_Preview: PreviewProvider {
+struct BestEvaluatedCollectionViewCell_Preview: PreviewProvider {
     static var previews: some View {
         // view controller using programmatic UI
         Group {
-            CloseToYouCollectionViewCell().showPreview().previewLayout(PreviewLayout.fixed(width: 163, height: 186))
+            BestEvaluatedCollectionViewCell().showPreview().previewLayout(PreviewLayout.fixed(width: 253, height: 190))
         }
     }
 }

@@ -1,17 +1,14 @@
 //
-//  FamilyPlacesCollectionViewCell.swift
+//  CloseToYouCollectionViewCell.swift
 //  Paris
 //
-//  Created by thaxz on 15/09/22.
+//  Created by thaxz on 16/09/22.
 //
 
 import UIKit
 
-import UIKit
-
-class FamilyPlacesCollectionViewCell: UICollectionViewCell {
-    
-    static let cellIdentifier = "FamilyPlacesCollectionViewCell"
+class CloseToYouCollectionViewCell: UICollectionViewCell {
+    static let cellIdentifier = "closeToYouCollectionViewCell"
     
     // MARK: - Inicializando stack views configuradas
     let stackView: UIStackView = {
@@ -20,17 +17,7 @@ class FamilyPlacesCollectionViewCell: UICollectionViewCell {
         stack.alignment = .fill
         stack.distribution = .fill
         stack.spacing = 8
-
         stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
-    
-    let titleStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.alignment = .fill
-        stack.distribution = .fill
-        stack.spacing = 0
         return stack
     }()
     
@@ -38,7 +25,7 @@ class FamilyPlacesCollectionViewCell: UICollectionViewCell {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.alignment = .leading
-        stack.distribution = .fill
+        stack.distribution = .fillProportionally
         stack.spacing = 0
         return stack
     }()
@@ -46,7 +33,7 @@ class FamilyPlacesCollectionViewCell: UICollectionViewCell {
     // MARK: - Inicializando componentes configurados
     let ivBestPlace: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "ivDishLaPecora")
+        imageView.image = UIImage(named: "place")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -76,12 +63,6 @@ class FamilyPlacesCollectionViewCell: UICollectionViewCell {
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
     }()
-    let lbPriceInfo: UILabel = {
-        let label = UILabel()
-        label.text = "R$80-100"
-        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        return label
-    }()
     
     let lbSymbol: UILabel = {
         let label = UILabel()
@@ -90,6 +71,12 @@ class FamilyPlacesCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    let lbDistance: UILabel = {
+        let label = UILabel()
+        label.text = "R$80-100"
+        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        return label
+    }()
     
     //MARK: - Inicialização da célula
     
@@ -97,7 +84,6 @@ class FamilyPlacesCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         setHierarchy()
-        changingAttributes()
         setUpConstraints()
         
     }
@@ -110,19 +96,12 @@ class FamilyPlacesCollectionViewCell: UICollectionViewCell {
     func setHierarchy() {
         self.addSubview(stackView)
         stackView.addArrangedSubview(ivBestPlace)
-        stackView.addArrangedSubview(titleStackView)
+        stackView.addArrangedSubview(lbName)
         stackView.addArrangedSubview(priceStackView)
-        titleStackView.addArrangedSubview(lbName)
         priceStackView.addArrangedSubview(ivRating)
         priceStackView.addArrangedSubview(lbRating)
-        priceStackView.addArrangedSubview(lbPriceInfo)
         priceStackView.addArrangedSubview(lbSymbol)
-        priceStackView.addArrangedSubview(lbPriceInfo)
-    }
-    // MARK: - Configurando atributos
-    
-    func changingAttributes() {
-        
+        priceStackView.addArrangedSubview(lbDistance)
     }
     // MARK: - Setando constraints
     
@@ -132,7 +111,10 @@ class FamilyPlacesCollectionViewCell: UICollectionViewCell {
             stackView.topAnchor.constraint(equalTo: self.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            ivRating.heightAnchor.constraint(equalToConstant: 20),
+            ivRating.widthAnchor.constraint(equalToConstant: 20)
             
             
         ])
@@ -143,25 +125,24 @@ class FamilyPlacesCollectionViewCell: UICollectionViewCell {
     func setup(name: String, priceInfo: String, rating: String, distance: String, image: UIImage) {
         
         ivBestPlace.image = image
-        lbPriceInfo.text = priceInfo
         lbRating.text = rating
         lbName.text = name
+        lbDistance.text = distance
         self.ivBestPlace.layer.cornerRadius = 8
         
     }
     
 }
-
 // MARK: - Preview at real time
 #if DEBUG
 import SwiftUI
 
 @available(iOS 13, *)
-struct FamilyPlacesCollectionViewCell_Preview: PreviewProvider {
+struct CloseToYouCollectionViewCell_Preview: PreviewProvider {
     static var previews: some View {
         // view controller using programmatic UI
         Group {
-            FamilyPlacesCollectionViewCell().showPreview().previewLayout(PreviewLayout.fixed(width: 163, height: 186))
+            CloseToYouCollectionViewCell().showPreview().previewLayout(PreviewLayout.fixed(width: 163, height: 186))
         }
     }
 }
