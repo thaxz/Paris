@@ -14,9 +14,9 @@ class SeeAllCollectionViewCell: UICollectionViewCell {
     private lazy var mainImage: UIImageView = {
         
         let imageView: UIImageView = UIImageView()
-        imageView.frame = CGRect(x: 0, y: 0, width: 342, height: 180)
+        imageView.image = UIImage(named: "ivMainDonaLindu")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
         
         return imageView
     }()
@@ -25,9 +25,36 @@ class SeeAllCollectionViewCell: UICollectionViewCell {
     private lazy var nameLabel: UILabel = {
         
         var label: UILabel = UILabel()
+        label.text = "Oiii"
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.numberOfLines = 1
         label.textColor = .black
+        label.isUserInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    private lazy var starImage: UIImageView = {
+        
+        let imageView: UIImageView = UIImageView()
+        imageView.image = UIImage(systemName: "star.fill")
+        imageView.tintColor = UIColor(named: "redMain")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        
+        
+        return imageView
+    }()
+    
+    private lazy var ratingLabel: UILabel = {
+        
+        var label: UILabel = UILabel()
+        label.text = "4.0"
+        label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        label.numberOfLines = 1
+        label.textColor = .black
+        label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -36,14 +63,55 @@ class SeeAllCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(mainImage)
-        addSubview(nameLabel)
+        changeAttributes()
     }
     
-    func setUp(image: UIImage, name: String) {
+    // MARK: - Setting constraints
+    
+    func settingConstraints() {
+        
+        NSLayoutConstraint.activate([
+        // iv
+        mainImage.topAnchor.constraint(equalTo: self.topAnchor),
+        mainImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+        mainImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        mainImage.heightAnchor.constraint(equalToConstant: 180),
+        
+        // lb
+        nameLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 8),
+        nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+        
+        // ivStar
+        starImage.heightAnchor.constraint(equalToConstant: 17),
+        starImage.widthAnchor.constraint(equalToConstant: 17),
+        starImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -32),
+        starImage.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 8),
+        
+        // lbRating
+        ratingLabel.leadingAnchor.constraint(equalTo: starImage.trailingAnchor, constant: 8),
+        ratingLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 8)
+        ])
+    }
+    
+    // MARK: - Setting up
+    
+    func changeAttributes() {
+        
+        addSubview(mainImage)
+        addSubview(nameLabel)
+        addSubview(starImage)
+        addSubview(ratingLabel)
+        
+        mainImage.layer.masksToBounds = true
+        mainImage.layer.cornerRadius = 4
+        settingConstraints()
+    }
+    
+    func setUp(image: UIImage, name: String, rating: String) {
 
         nameLabel.text = name
         mainImage.image = image
+        ratingLabel.text = rating
     }
     
     required init?(coder: NSCoder) {
