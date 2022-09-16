@@ -81,14 +81,14 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
     
     let lbSymbol: UILabel = {
         let label = UILabel()
-        label.text = " . "
+        label.text = ""
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         return label
     }()
     
     let lbDistance: UILabel = {
         let label = UILabel()
-        label.text = "0.6km"
+        label.text = ""
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
 
         return label
@@ -135,8 +135,10 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
             stackView.topAnchor.constraint(equalTo: self.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
+            ivRating.heightAnchor.constraint(equalToConstant: 20),
+            ivRating.widthAnchor.constraint(equalToConstant: 20)
             
         ])
         

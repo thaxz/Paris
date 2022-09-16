@@ -25,7 +25,7 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.alignment = .leading
-        stack.distribution = .fill
+        stack.distribution = .fillProportionally
         stack.spacing = 0
         return stack
     }()
@@ -73,7 +73,7 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
     
     let lbDistance: UILabel = {
         let label = UILabel()
-        label.text = "0.6km"
+        label.text = "R$80-100"
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         return label
     }()
@@ -84,7 +84,6 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         setHierarchy()
-        changingAttributes()
         setUpConstraints()
         
     }
@@ -104,11 +103,6 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
         priceStackView.addArrangedSubview(lbSymbol)
         priceStackView.addArrangedSubview(lbDistance)
     }
-    // MARK: - Configurando atributos
-    
-    func changingAttributes() {
-        
-    }
     // MARK: - Setando constraints
     
     func setUpConstraints() {
@@ -117,7 +111,10 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
             stackView.topAnchor.constraint(equalTo: self.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            ivRating.heightAnchor.constraint(equalToConstant: 20),
+            ivRating.widthAnchor.constraint(equalToConstant: 20)
             
             
         ])
@@ -136,7 +133,6 @@ class CloseToYouCollectionViewCell: UICollectionViewCell {
     }
     
 }
-
 // MARK: - Preview at real time
 
 #if DEBUG
