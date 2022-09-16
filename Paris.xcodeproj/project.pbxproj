@@ -10,6 +10,9 @@
 		A34614BA28D3A478006E76A4 /* SeeAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34614B928D3A478006E76A4 /* SeeAllView.swift */; };
 		A34614BC28D3A83E006E76A4 /* SeeAllViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34614BB28D3A83E006E76A4 /* SeeAllViewController+DataSource.swift */; };
 		A34614BE28D3A85A006E76A4 /* SeeAllViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34614BD28D3A85A006E76A4 /* SeeAllViewController+Delegate.swift */; };
+		A34614C128D509B7006E76A4 /* ReviewSeeAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34614C028D509B7006E76A4 /* ReviewSeeAllViewController.swift */; };
+		A34614C328D50C3D006E76A4 /* ReviewSeeAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34614C228D50C3D006E76A4 /* ReviewSeeAllView.swift */; };
+		A34614C528D50F26006E76A4 /* ReviewSeeAllCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34614C428D50F26006E76A4 /* ReviewSeeAllCollectionViewCell.swift */; };
 		A391505A28D25C3900C982EF /* SeeAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A391505928D25C3900C982EF /* SeeAllViewController.swift */; };
 		A391505C28D2635F00C982EF /* SeeAllCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A391505B28D2635F00C982EF /* SeeAllCollectionViewCell.swift */; };
 		E9182EAF28D006FA0071EB69 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EAE28D006FA0071EB69 /* TabBarController.swift */; };
@@ -35,6 +38,9 @@
 		A34614B928D3A478006E76A4 /* SeeAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllView.swift; sourceTree = "<group>"; };
 		A34614BB28D3A83E006E76A4 /* SeeAllViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeeAllViewController+DataSource.swift"; sourceTree = "<group>"; };
 		A34614BD28D3A85A006E76A4 /* SeeAllViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeeAllViewController+Delegate.swift"; sourceTree = "<group>"; };
+		A34614C028D509B7006E76A4 /* ReviewSeeAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSeeAllViewController.swift; sourceTree = "<group>"; };
+		A34614C228D50C3D006E76A4 /* ReviewSeeAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSeeAllView.swift; sourceTree = "<group>"; };
+		A34614C428D50F26006E76A4 /* ReviewSeeAllCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSeeAllCollectionViewCell.swift; sourceTree = "<group>"; };
 		A391505928D25C3900C982EF /* SeeAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllViewController.swift; sourceTree = "<group>"; };
 		A391505B28D2635F00C982EF /* SeeAllCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9182EAE28D006FA0071EB69 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -69,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A34614BF28D4FE07006E76A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A34614B928D3A478006E76A4 /* SeeAllView.swift */,
+				A34614C228D50C3D006E76A4 /* ReviewSeeAllView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E9182EAC28D004D00071EB69 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +95,7 @@
 				A391505928D25C3900C982EF /* SeeAllViewController.swift */,
 				A34614BB28D3A83E006E76A4 /* SeeAllViewController+DataSource.swift */,
 				A34614BD28D3A85A006E76A4 /* SeeAllViewController+Delegate.swift */,
+				A34614C028D509B7006E76A4 /* ReviewSeeAllViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -92,7 +108,7 @@
 				E94851A128D0AF610032DBDC /* Restaurant+Restaurants.swift */,
 				E94851A328D0AF760032DBDC /* Tour+Tours.swift */,
 				A391505B28D2635F00C982EF /* SeeAllCollectionViewCell.swift */,
-				A34614B928D3A478006E76A4 /* SeeAllView.swift */,
+				A34614C428D50F26006E76A4 /* ReviewSeeAllCollectionViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,6 +135,7 @@
 				E9E58CF628CD0DB5005BDAE8 /* AppDelegate.swift */,
 				E9E58CF828CD0DB5005BDAE8 /* SceneDelegate.swift */,
 				E9182EAD28D004EA0071EB69 /* Model */,
+				A34614BF28D4FE07006E76A4 /* Views */,
 				E9182EAC28D004D00071EB69 /* Controllers */,
 				E9E58CFF28CD0DB6005BDAE8 /* Assets.xcassets */,
 				E9E58D0128CD0DB6005BDAE8 /* LaunchScreen.storyboard */,
@@ -215,16 +232,19 @@
 				E94851A428D0AF760032DBDC /* Tour+Tours.swift in Sources */,
 				E94851A028D0A6C50032DBDC /* Tour.swift in Sources */,
 				A391505C28D2635F00C982EF /* SeeAllCollectionViewCell.swift in Sources */,
+				A34614C328D50C3D006E76A4 /* ReviewSeeAllView.swift in Sources */,
 				A34614BA28D3A478006E76A4 /* SeeAllView.swift in Sources */,
 				E9182EB128D007920071EB69 /* SearchViewController.swift in Sources */,
 				E9182EB528D011740071EB69 /* ExtensionSegmentedControll.swift in Sources */,
 				A34614BE28D3A85A006E76A4 /* SeeAllViewController+Delegate.swift in Sources */,
 				E9E58D0C28CD0E8D005BDAE8 /* UIView+Preview.swift in Sources */,
+				A34614C128D509B7006E76A4 /* ReviewSeeAllViewController.swift in Sources */,
 				E9E58D0D28CD0E8D005BDAE8 /* UIViewController+Preview.swift in Sources */,
 				E9182EAF28D006FA0071EB69 /* TabBarController.swift in Sources */,
 				A391505A28D25C3900C982EF /* SeeAllViewController.swift in Sources */,
 				E94851A228D0AF610032DBDC /* Restaurant+Restaurants.swift in Sources */,
 				E9E58CF728CD0DB5005BDAE8 /* AppDelegate.swift in Sources */,
+				A34614C528D50F26006E76A4 /* ReviewSeeAllCollectionViewCell.swift in Sources */,
 				A34614BC28D3A83E006E76A4 /* SeeAllViewController+DataSource.swift in Sources */,
 				E9370BC428D0B6D300FD4344 /* ProfileViewController.swift in Sources */,
 				E9182EB328D007A00071EB69 /* SavedViewController.swift in Sources */,

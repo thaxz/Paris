@@ -27,7 +27,6 @@ class SeeAllView: UIView {
 //        collectionView.backgroundColor = UIColor(named: "redMain")
         
         return collectionView
-        
     }()
     
     // MARK: - Init
