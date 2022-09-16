@@ -40,8 +40,8 @@ class ProfileViewController: UIViewController {
     // Pertinho
     let nearScrollView: UIScrollView = {
         let scroll = UIScrollView()
-        scroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1100)
-        scroll.backgroundColor = .green
+        scroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/4)
+        scroll.backgroundColor = .clear
         // scroll.showsVerticalScrollIndicator = false
         return scroll
     }()
@@ -60,7 +60,25 @@ class ProfileViewController: UIViewController {
     let resourcesView = UIView()
     let locationView = UIView()
     
- 
+    let closeView = UIView()
+    
+    let closeToYouCollectionView:  UICollectionView = {
+            let layout = UICollectionViewFlowLayout()
+            layout.itemSize = CGSize(width: 163, height: 186)
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+            layout.scrollDirection = .horizontal
+            var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            collectionView.register(CloseToYouCollectionViewCell.self, forCellWithReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier)
+            collectionView.showsHorizontalScrollIndicator = false
+            return collectionView
+        }()
+    
+    func settingCollections(){
+        // close to you collection 
+        closeToYouCollectionView.delegate = self
+        closeToYouCollectionView.dataSource = self
+        
+    }
     
     let placeStack: UIStackView = {
         let stack = UIStackView()
@@ -205,6 +223,7 @@ class ProfileViewController: UIViewController {
     let aboutContainer = UIView()
     var needToAppear: [Bool] = [true, true, true]
     var scrollViews: [UIScrollView]?
+    let familyView = UIView()
 
     // Segmented control
     
@@ -232,6 +251,8 @@ class ProfileViewController: UIViewController {
             reviewScrollView
         ]
         changeScrollViewBySegmentedIndex()
+        
+        settingCollections()
     }
     
     // Função que é chamada quando o valor da segmented é alterado
@@ -264,9 +285,16 @@ class ProfileViewController: UIViewController {
         let height = CGFloat(568/3)
         let width = UIScreen.main.bounds.width
         
+        let nearHeight = UIScreen.main.bounds.height / 4
+        
         descriptionView.frame = CGRect(x: 0, y: 0, width: width, height: height)
         resourcesView.frame = CGRect(x: 0, y: height, width: width, height: height)
         locationView.frame = CGRect(x: 0, y: 2*height, width: width, height: height)
+        
+        closeView.frame = CGRect(x: 0, y: 0, width: width, height: nearHeight)
+        familyView.frame = CGRect(x: 0, y: nearHeight, width: width, height: nearHeight)
+        
+        familyView.backgroundColor = .yellow
     }
 
     // MARK: - Ajustando hierarquia
@@ -297,9 +325,18 @@ class ProfileViewController: UIViewController {
         placeInfoStack.addArrangedSubview(star)
         placeInfoStack.addArrangedSubview(infoContent)
                 
+        // Add na scrollView
+        
         aboutScrollView.addSubview(descriptionView)
         aboutScrollView.addSubview(resourcesView)
         aboutScrollView.addSubview(locationView)
+        
+        // MARK: - AQUI
+        
+        nearScrollView.addSubview(closeView)
+        nearScrollView.addSubview(familyView)
+        
+        closeView.addSubview(closeToYouCollectionView)
         
         descriptionView.addSubview(aboutDescriptionLabel)
         descriptionView.addSubview(phoneStack)
@@ -415,6 +452,8 @@ class ProfileViewController: UIViewController {
             aboutScrollView.bottomAnchor.constraint(equalTo: aboutContainer.bottomAnchor)
         ])
         
+        // MARK: - Mexendo aqui
+        
         nearScrollView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -422,6 +461,21 @@ class ProfileViewController: UIViewController {
             nearScrollView.leadingAnchor.constraint(equalTo: aboutContainer.leadingAnchor),
             nearScrollView.trailingAnchor.constraint(equalTo: aboutContainer.trailingAnchor),
             nearScrollView.bottomAnchor.constraint(equalTo: aboutContainer.bottomAnchor)
+        ])
+        
+        
+        // MARK: AQUI
+        
+        closeToYouCollectionView.translatesAutoresizingMaskIntoConstraints = false
+    
+
+        NSLayoutConstraint.activate([
+
+            closeToYouCollectionView.topAnchor.constraint(equalTo: closeView.topAnchor, constant: 24),
+            closeToYouCollectionView.leadingAnchor.constraint(equalTo: closeView.leadingAnchor, constant: 24),
+            closeToYouCollectionView.trailingAnchor.constraint(equalTo: closeView.trailingAnchor, constant: -24),
+            closeToYouCollectionView.heightAnchor.constraint(equalToConstant: 186)
+
         ])
         
         reviewScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -507,6 +561,7 @@ class ProfileViewController: UIViewController {
             adress.leadingAnchor.constraint(equalTo: location.leadingAnchor),
             adress.trailingAnchor.constraint(equalTo: location.trailingAnchor)
         ])
+        
         
         
     }

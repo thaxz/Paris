@@ -13,7 +13,7 @@ class SearchTableViewCell: UITableViewCell {
     
     lazy var ivSearchCell: UIImageView = {
         let image: UIImageView = UIImageView()
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -70,7 +70,8 @@ class SearchTableViewCell: UITableViewCell {
         //starStack.addArrangedSubview(ivStar)
         //starStack.addArrangedSubview(lbRating)
         
-        ivSearchCell.layer.cornerRadius = 8
+        ivSearchCell.layer.masksToBounds = true
+        ivSearchCell.layer.cornerRadius = 4
         
         
     }
