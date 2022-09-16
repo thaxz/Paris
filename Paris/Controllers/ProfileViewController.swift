@@ -117,5 +117,4 @@ class ProfileViewController: UIViewController {
         setUpConstraints()
         btConfiguration()
     }
-    
 }

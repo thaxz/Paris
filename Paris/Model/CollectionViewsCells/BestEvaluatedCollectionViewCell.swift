@@ -45,6 +45,7 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
         imageView.image = UIImage(named: "place")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 4
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -72,6 +73,7 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
     }()
+    
     let lbPriceInfo: UILabel = {
         let label = UILabel()
         label.text = "R$80-100"
@@ -102,7 +104,6 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
         setHierarchy()
         changingAttributes()
         setUpConstraints()
-        
     }
     
     required init?(coder: NSCoder) {

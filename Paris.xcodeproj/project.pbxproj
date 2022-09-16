@@ -10,6 +10,8 @@
 		8248CDEF28D1239000E2D42B /* BestEvaluatedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8248CDEE28D1239000E2D42B /* BestEvaluatedCollectionViewCell.swift */; };
 		8248CDF128D223DA00E2D42B /* CloseToYouCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8248CDF028D223DA00E2D42B /* CloseToYouCollectionViewCell.swift */; };
 		8248CDF428D23FFE00E2D42B /* FamilyPlacesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8248CDF328D23FFE00E2D42B /* FamilyPlacesCollectionViewCell.swift */; };
+		82DFF71828D4E6F6004F1344 /* HomeViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DFF71728D4E6F6004F1344 /* HomeViewController+UICollectionView.swift */; };
+		82DFF71B28D4F27B004F1344 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DFF71A28D4F27B004F1344 /* HomeView.swift */; };
 		E9182EAF28D006FA0071EB69 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EAE28D006FA0071EB69 /* TabBarController.swift */; };
 		E9182EB128D007920071EB69 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EB028D007920071EB69 /* SearchViewController.swift */; };
 		E9182EB328D007A00071EB69 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EB228D007A00071EB69 /* SavedViewController.swift */; };
@@ -33,6 +35,8 @@
 		8248CDEE28D1239000E2D42B /* BestEvaluatedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestEvaluatedCollectionViewCell.swift; sourceTree = "<group>"; };
 		8248CDF028D223DA00E2D42B /* CloseToYouCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseToYouCollectionViewCell.swift; sourceTree = "<group>"; };
 		8248CDF328D23FFE00E2D42B /* FamilyPlacesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyPlacesCollectionViewCell.swift; sourceTree = "<group>"; };
+		82DFF71728D4E6F6004F1344 /* HomeViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UICollectionView.swift"; sourceTree = "<group>"; };
+		82DFF71A28D4F27B004F1344 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E9182EAE28D006FA0071EB69 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E9182EB028D007920071EB69 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E9182EB228D007A00071EB69 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +79,14 @@
 			path = CollectionViewsCells;
 			sourceTree = "<group>";
 		};
+		82DFF71928D4F251004F1344 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				82DFF71A28D4F27B004F1344 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E9182EAC28D004D00071EB69 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +95,7 @@
 				E9E58CFA28CD0DB5005BDAE8 /* HomeViewController.swift */,
 				E9182EB028D007920071EB69 /* SearchViewController.swift */,
 				E9182EB228D007A00071EB69 /* SavedViewController.swift */,
+				82DFF71728D4E6F6004F1344 /* HomeViewController+UICollectionView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -121,6 +134,7 @@
 				E9E58CF628CD0DB5005BDAE8 /* AppDelegate.swift */,
 				E9E58CF828CD0DB5005BDAE8 /* SceneDelegate.swift */,
 				E9182EAD28D004EA0071EB69 /* Model */,
+				82DFF71928D4F251004F1344 /* Views */,
 				E9182EAC28D004D00071EB69 /* Controllers */,
 				E9E58CFF28CD0DB6005BDAE8 /* Assets.xcassets */,
 				E9E58D0128CD0DB6005BDAE8 /* LaunchScreen.storyboard */,
@@ -213,6 +227,7 @@
 			files = (
 				8248CDF128D223DA00E2D42B /* CloseToYouCollectionViewCell.swift in Sources */,
 				8248CDEF28D1239000E2D42B /* BestEvaluatedCollectionViewCell.swift in Sources */,
+				82DFF71828D4E6F6004F1344 /* HomeViewController+UICollectionView.swift in Sources */,
 				E948519E28D0A6AA0032DBDC /* Restaurant.swift in Sources */,
 				E9E58CFB28CD0DB5005BDAE8 /* HomeViewController.swift in Sources */,
 				E9182EB728D0118E0071EB69 /* ExtensionUIImage.swift in Sources */,
@@ -223,6 +238,7 @@
 				E9E58D0C28CD0E8D005BDAE8 /* UIView+Preview.swift in Sources */,
 				E9E58D0D28CD0E8D005BDAE8 /* UIViewController+Preview.swift in Sources */,
 				E9182EAF28D006FA0071EB69 /* TabBarController.swift in Sources */,
+				82DFF71B28D4F27B004F1344 /* HomeView.swift in Sources */,
 				E94851A228D0AF610032DBDC /* Restaurant+Restaurants.swift in Sources */,
 				E9E58CF728CD0DB5005BDAE8 /* AppDelegate.swift in Sources */,
 				E9370BC428D0B6D300FD4344 /* ProfileViewController.swift in Sources */,
@@ -369,7 +385,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5S88AY6J4R;
+				DEVELOPMENT_TEAM = 9CSC9GA37T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Paris/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -397,7 +413,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5S88AY6J4R;
+				DEVELOPMENT_TEAM = 9CSC9GA37T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Paris/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
