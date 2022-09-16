@@ -14,9 +14,9 @@ class SeeAllCollectionViewCell: UICollectionViewCell {
     private lazy var mainImage: UIImageView = {
         
         let imageView: UIImageView = UIImageView()
-        imageView.image = UIImage(named: "ivMainDonaLindu")
+        imageView.image = UIImage(named: "")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         
         return imageView
     }()
@@ -25,7 +25,7 @@ class SeeAllCollectionViewCell: UICollectionViewCell {
     private lazy var nameLabel: UILabel = {
         
         var label: UILabel = UILabel()
-        label.text = "Oiii"
+        label.text = ""
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.numberOfLines = 1
         label.textColor = .black
@@ -50,7 +50,7 @@ class SeeAllCollectionViewCell: UICollectionViewCell {
     private lazy var ratingLabel: UILabel = {
         
         var label: UILabel = UILabel()
-        label.text = "4.0"
+        label.text = ""
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         label.numberOfLines = 1
         label.textColor = .black

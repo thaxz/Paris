@@ -11,12 +11,16 @@ import UIKit
 extension SeeAllViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return restaurants.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = seeAllView.seeAllCollectionView.dequeueReusableCell(withReuseIdentifier: SeeAllCollectionViewCell.id, for: indexPath)
+        let cell = seeAllView.seeAllCollectionView.dequeueReusableCell(withReuseIdentifier: SeeAllCollectionViewCell.id, for: indexPath) as! SeeAllCollectionViewCell
+        
+        cell.setUp(image: UIImage(named: restaurants[indexPath.item].mainImage)!,
+                   name: restaurants[indexPath.item].name,
+                   rating: restaurants[indexPath.item].rating)
         
         return cell
     }
