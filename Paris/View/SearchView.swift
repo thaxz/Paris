@@ -162,8 +162,8 @@ class SearchView: UIView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.endEditing(true)
         
-        stackGeneral.isHidden = false
-        searchTableView.isHidden = true
+//        stackGeneral.isHidden = false
+//        searchTableView.isHidden = true
     }
     
 

@@ -10,12 +10,13 @@ import SwiftUI
 
 // Controller da tela "Busca"
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UISearchControllerDelegate {
 
     // Storing and instantiating what we are going to get from database
     
-    var searchRestaurants: [Restaurant] = []
-    var searchTours: [Tour] = []
+    var searchRestaurants: [Restaurant] = Restaurant.restaurants()
+    
+    var filteredRestaurants: [Restaurant] = []
   
     // Instantiating searchController
     let searchController = UISearchController()
@@ -29,6 +30,10 @@ class SearchViewController: UIViewController {
         setUpController()
         
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        testingSearch()
+        
+        
     }
    
     
@@ -60,13 +65,62 @@ class SearchViewController: UIViewController {
         
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search"
         
     }
 
 }
 
-extension SearchViewController: UISearchResultsUpdating {
+extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    
+    func testingSearch(){
+        
+       // filteredRestaurants = searchRestaurants
+    
+    }
+    
+    // When cancel button is clicked
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        print("rolou")
+        
+        searchView.stackGeneral.isHidden = false
+        searchView.searchTableView.isHidden = true
+        
+        searchView.searchTableView.reloadData()
+    }
+    
+    // When search button is clicked
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+       
+        
+        searchView.searchTableView.reloadData()
+    }
+    
+    // When text is changing
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       
+        filteredRestaurants = searchRestaurants
+        
+        if searchText.isEmpty == false {
+            filteredRestaurants = searchRestaurants.filter({ (restaurant) in
+                
+                return restaurant.name.lowercased().contains(searchText.lowercased())
+            })
+            
+            searchView.searchTableView.reloadData()
+        }
+        else {
+            filteredRestaurants = []
+            searchView.searchTableView.isHidden = true
+        }
+    }
     
     // Updating results as soon as you type something
     
@@ -75,7 +129,7 @@ extension SearchViewController: UISearchResultsUpdating {
         searchView.stackGeneral.isHidden = true
         searchView.searchTableView.isHidden = false
         
-        guard let title = searchController.searchBar.text else {return}
+        searchView.searchTableView.reloadData()
         
         
     }
