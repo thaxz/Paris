@@ -21,8 +21,6 @@ class HomeViewController: UIViewController {
     let familyTours = Tour.familyTours()
     
     let homeView = HomeView()
-    
-    
         
     var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -37,16 +35,6 @@ class HomeViewController: UIViewController {
         // Ajustando a tela
         setUpHomeController()
         
-    }
-    
-    func changeObject(){
-        
-        if homeView.object == "restaurant" {
-            
-        
-        } else if homeView.object == "tour" {
-            
-        }
     }
     
     func setUpHomeController () {
@@ -68,7 +56,6 @@ class HomeViewController: UIViewController {
         
         setHierarchy()
         setUpConstraints()
-        changeObject()
     }
     
     // MARK: - Hierarquia

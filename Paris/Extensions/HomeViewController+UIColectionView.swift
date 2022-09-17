@@ -43,13 +43,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    fileprivate func makeBestEvaluatedCell(_ indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == homeView.bestEvaluatedCollectionView {
-            
-            let cell = homeView.bestEvaluatedCollectionView.dequeueReusableCell(withReuseIdentifier: BestEvaluatedCollectionViewCell.cellIdentifier, for: indexPath) as! BestEvaluatedCollectionViewCell
-            
-            if homeView.object == "restaurant" {
+        let cell = homeView.bestEvaluatedCollectionView.dequeueReusableCell(withReuseIdentifier: BestEvaluatedCollectionViewCell.cellIdentifier, for: indexPath) as! BestEvaluatedCollectionViewCell
+        
+        if homeView.object == "restaurant" {
             
             cell.setup(name: bestRestaurants[indexPath.item].name,
                        priceInfo: bestRestaurants[indexPath.item].priceRange,
@@ -58,25 +56,24 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                        image: UIImage(named: bestRestaurants[indexPath.item].mainImage)!)
             
             return cell
-                
-            } else {
-                
-                cell.setup(name: bestTours[indexPath.item].name,
-                           priceInfo: "",
-                           rating: bestTours[indexPath.item].rating,
-                           distance: bestTours[indexPath.item].distance ?? "",
-                           image: UIImage(named: bestTours[indexPath.item].mainImage)!)
-                
-                return cell
-                
-                
-            }
             
-        } else if collectionView == homeView.closeToYouCollectionView {
+        } else {
             
-            let cell = homeView.closeToYouCollectionView.dequeueReusableCell(withReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier, for: indexPath) as! CloseToYouCollectionViewCell
+            cell.setup(name: bestTours[indexPath.item].name,
+                       priceInfo: "",
+                       rating: bestTours[indexPath.item].rating,
+                       distance: bestTours[indexPath.item].distance ?? "",
+                       image: UIImage(named: bestTours[indexPath.item].mainImage)!)
             
-            if homeView.object == "restaurant" {
+            return cell
+        }
+    }
+    
+    fileprivate func makeNightsCell(_ indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = homeView.closeToYouCollectionView.dequeueReusableCell(withReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier, for: indexPath) as! CloseToYouCollectionViewCell
+        
+        if homeView.object == "restaurant" {
             
             cell.setup(name: nightRestaurants[indexPath.item].name,
                        priceInfo: nightRestaurants[indexPath.item].priceRange,
@@ -85,25 +82,25 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                        image: UIImage(named: nightRestaurants[indexPath.item].mainImage)!)
             
             return cell
-                
-            } else {
-                
-                cell.setup(name: nightTours[indexPath.item].name,
-                           priceInfo: "",
-                           rating: nightTours[indexPath.item].rating,
-                           distance: "",
-                           image: UIImage(named: nightTours[indexPath.item].mainImage)!)
-                
-                return cell
-                
-            }
             
         } else {
             
+            cell.setup(name: nightTours[indexPath.item].name,
+                       priceInfo: "",
+                       rating: nightTours[indexPath.item].rating,
+                       distance: "",
+                       image: UIImage(named: nightTours[indexPath.item].mainImage)!)
             
-            let cell = homeView.familyPlacesCollectionView.dequeueReusableCell(withReuseIdentifier: FamilyPlacesCollectionViewCell.cellIdentifier, for: indexPath) as! FamilyPlacesCollectionViewCell
+            return cell
             
-            if homeView.object == "restaurant" {
+        }
+    }
+    
+    fileprivate func makeFamilyCell(_ indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = homeView.familyPlacesCollectionView.dequeueReusableCell(withReuseIdentifier: FamilyPlacesCollectionViewCell.cellIdentifier, for: indexPath) as! FamilyPlacesCollectionViewCell
+        
+        if homeView.object == "restaurant" {
             
             cell.setup(name: familyRestaurants[indexPath.item].name,
                        priceInfo: "",
@@ -112,18 +109,35 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                        image: UIImage(named: familyRestaurants[indexPath.item].mainImage)!)
             
             return cell
-                
-            } else {
-                
-                cell.setup(name: familyTours[indexPath.item].name,
-                           priceInfo: "",
-                           rating: familyTours[indexPath.item].rating,
-                           distance: "",
-                           image: UIImage(named: familyTours[indexPath.item].mainImage)!)
-                
-                return cell
-                
-            }
+            
+        } else {
+            
+            cell.setup(name: familyTours[indexPath.item].name,
+                       priceInfo: "",
+                       rating: familyTours[indexPath.item].rating,
+                       distance: "",
+                       image: UIImage(named: familyTours[indexPath.item].mainImage)!)
+            
+            return cell
+            
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView == homeView.bestEvaluatedCollectionView {
+            
+            return makeBestEvaluatedCell(indexPath)
+            
+        } else if collectionView == homeView.closeToYouCollectionView {
+            
+            return makeNightsCell(indexPath)
+            
+        } else {
+        
+            return makeFamilyCell(indexPath)
+        }
+    }
+    
+    // Colocar delegate aqui
 }
