@@ -111,7 +111,7 @@ extension Tour {
                 ),
             
             Tour(name: "Rua Mamede Simões",
-                 rating: "2.5",
+                 rating: "3.5",
                  distance: "",
                  description: "Localizada entre a Rua da Aurora e o Parque Treze de Maio, por trás do Ginásio Pernambucano e da Assembléia Legislativa, a Rua Mamede Simões se tornou um centro de vitalidade, lazer, política e toda a boemia que representa o bairro da Boa Vista para os recifenses. A famosa Mamede integra essa paisagem cheia de atributos da Boa Vista, com seus bares e burburinhos causados pelos encontros de amigos para 'tomar uma cerveja', nem que seja em pé e no meio da rua.",
                  phoneNumber: "",

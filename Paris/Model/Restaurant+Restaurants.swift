@@ -61,7 +61,7 @@ extension Restaurant {
                       ),
             
             Restaurant(name: "La Pecora Nera",
-                       rating: "4.5",
+                       rating: "4.6",
                        priceRange: "R$ 50 - R$ 100",
                        distance: "",
                        description: "Sabor e qualidade. Comida italia. Almoço e jantar.",
@@ -156,7 +156,7 @@ extension Restaurant {
                       ),
             
             Restaurant(name: "No Kasquin",
-                       rating: "4.8",
+                       rating: "4.7",
                        priceRange: "R$ 15 - R$ 25",
                        distance: "",
                        description: "Sorveteria artesanal bem localizada, contém mesas ao ar livre e uma diversa seleção de sabores tradicionais e exóticos.",
@@ -178,7 +178,7 @@ extension Restaurant {
                       ),
             
             Restaurant(name: "Madoska",
-                       rating: "4.8",
+                       rating: "4.7",
                        priceRange: "R$ 25 - R$ 35",
                        distance: "",
                        description: "Especialista e referência em sorvetes naturais desde 1995, oferecendo o melhor também, em açaí.",
@@ -224,7 +224,7 @@ extension Restaurant {
                       ),
             
             Restaurant(name: "Speck Haus Burger",
-                       rating: "4.4",
+                       rating: "4.8",
                        priceRange: "R$ 25 - R$ 50",
                        distance: "",
                        description: "A Speck é uma hamburgueria de alto padrão, possui certificado Angus Beef e Wagyu Beef.",
@@ -249,7 +249,4 @@ extension Restaurant {
 
         ] // Fim do return
     }
-    
-    
-    
 }

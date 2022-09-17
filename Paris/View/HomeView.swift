@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol HomeViewDelegate: AnyObject {
+
+    func pushNewController()
+}
+
 class HomeView: UIView {
+    
+    weak var delegate: HomeViewDelegate?
     
     let segmentedControl: UISegmentedControl = {
         let segmented = UISegmentedControl(items: ["Restaurantes", "Passeios"])
@@ -164,7 +171,7 @@ class HomeView: UIView {
     }
     
     @objc func tappedButton() {
-        print("Botão foi pressionado")
+        delegate?.pushNewController()
     }
     
     func btConfiguration(){

@@ -35,6 +35,8 @@ class HomeViewController: UIViewController {
         
         homeView.familyPlacesCollectionView.delegate = self
         homeView.familyPlacesCollectionView.dataSource = self
+        
+        homeView.delegate = self
     }
     
     func setUpHomeController () {
@@ -76,6 +78,22 @@ class HomeViewController: UIViewController {
         
         homeView.setupSegmentedControl(with: scrollView)
     }
+    
+    // existe a função pushNewController aqui
+    
+    
+}
+
+extension HomeViewController: HomeViewDelegate {
+    
+    // passar isso pro did select row at
+    // aqui colocar que vai pra tela de ver mais
+    
+    func pushNewController() {
+        let profileViewController = ProfileViewController()
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
+
 }
 
 // MARK: - Preview at real time
