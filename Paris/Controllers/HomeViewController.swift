@@ -9,8 +9,16 @@ import UIKit
 class HomeViewController: UIViewController {
     
 //    var contentView = UIView()
+    
     let restaurants = Restaurant.restaurants()
+    let bestRestaurants = Restaurant.bestRestaurants()
+    let nightRestaurants = Restaurant.nightRestaurants()
+    let familyRestaurants = Restaurant.familyRestaurants()
+    
     let tours = Tour.tours()
+    let bestTours = Tour.bestTours()
+    let nightTours = Tour.nightTours()
+    let familyTours = Tour.familyTours()
     
     let homeView = HomeView()
         

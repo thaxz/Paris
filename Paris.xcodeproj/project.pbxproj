@@ -114,15 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				E948519D28D0A6AA0032DBDC /* Restaurant.swift */,
-				E94851A128D0AF610032DBDC /* Restaurant+Restaurants.swift */,
-				E93D03F328D60B0700AAD03B /* Restaurant+BestEvaluated.swift */,
-				E93D03FB28D60F2B00AAD03B /* Restaurant+Family.swift */,
-				E93D03F728D60DD200AAD03B /* Restaurant+Night.swift */,
+				E93D03FF28D610CA00AAD03B /* Restaurants */,
 				E948519F28D0A6C50032DBDC /* Tour.swift */,
-				E93D03F528D60CBB00AAD03B /* Tour+BestEvaluated.swift */,
-				E93D03F928D60E7100AAD03B /* Tour+Night.swift */,
-				E93D03FD28D60FEF00AAD03B /* Tour+Family.swift */,
-				E94851A328D0AF760032DBDC /* Tour+Tours.swift */,
+				E93D040028D610DA00AAD03B /* Tours */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +138,28 @@
 				E93C0B9628D42B2D00D59104 /* IconTextLabel.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		E93D03FF28D610CA00AAD03B /* Restaurants */ = {
+			isa = PBXGroup;
+			children = (
+				E94851A128D0AF610032DBDC /* Restaurant+Restaurants.swift */,
+				E93D03F328D60B0700AAD03B /* Restaurant+BestEvaluated.swift */,
+				E93D03FB28D60F2B00AAD03B /* Restaurant+Family.swift */,
+				E93D03F728D60DD200AAD03B /* Restaurant+Night.swift */,
+			);
+			path = Restaurants;
+			sourceTree = "<group>";
+		};
+		E93D040028D610DA00AAD03B /* Tours */ = {
+			isa = PBXGroup;
+			children = (
+				E93D03F528D60CBB00AAD03B /* Tour+BestEvaluated.swift */,
+				E93D03F928D60E7100AAD03B /* Tour+Night.swift */,
+				E93D03FD28D60FEF00AAD03B /* Tour+Family.swift */,
+				E94851A328D0AF760032DBDC /* Tour+Tours.swift */,
+			);
+			path = Tours;
 			sourceTree = "<group>";
 		};
 		E9DB9E6028D2A0F00027B370 /* View */ = {

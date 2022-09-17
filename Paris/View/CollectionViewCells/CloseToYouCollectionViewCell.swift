@@ -8,6 +8,7 @@
 import UIKit
 
 class CloseToYouCollectionViewCell: UICollectionViewCell {
+    
     static let cellIdentifier = "closeToYouCollectionViewCell"
     
     // MARK: - Inicializando stack views configuradas

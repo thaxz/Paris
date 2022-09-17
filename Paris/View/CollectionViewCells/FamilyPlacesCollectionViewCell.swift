@@ -8,6 +8,7 @@
 import UIKit
 
 class FamilyPlacesCollectionViewCell: UICollectionViewCell {
+    
     static let cellIdentifier = "FamilyPlacesCollectionViewCell"
     
     // MARK: - Inicializando stack views configuradas
@@ -132,7 +133,8 @@ class FamilyPlacesCollectionViewCell: UICollectionViewCell {
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
             ivRating.heightAnchor.constraint(equalToConstant: 20),
-            ivRating.widthAnchor.constraint(equalToConstant: 20)
+            ivRating.widthAnchor.constraint(equalToConstant: 20),
+            ivBestPlace.heightAnchor.constraint(equalToConstant: 132)
             
             
             
