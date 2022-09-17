@@ -21,6 +21,8 @@ class HomeViewController: UIViewController {
     let familyTours = Tour.familyTours()
     
     let homeView = HomeView()
+    
+    
         
     var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -29,11 +31,29 @@ class HomeViewController: UIViewController {
         return scroll
     }()
             
-    // MARK: - Configuração Collections Views
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Ajustando a tela
         setUpHomeController()
+        
+    }
+    
+    func changeObject(){
+        
+        if homeView.object == "restaurant" {
+            
+        
+        } else if homeView.object == "tour" {
+            
+        }
+    }
+    
+    func setUpHomeController () {
+        
+        view.backgroundColor = .white
+        self.navigationItem.title = "Aonde vamos hoje?"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         homeView.bestEvaluatedCollectionView.delegate = self
         homeView.bestEvaluatedCollectionView.dataSource = self
@@ -45,18 +65,14 @@ class HomeViewController: UIViewController {
         homeView.familyPlacesCollectionView.dataSource = self
         
         homeView.delegate = self
-    }
-    
-    func setUpHomeController () {
-        view.backgroundColor = .white
-        self.navigationItem.title = "Aonde vamos hoje?"
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         setHierarchy()
         setUpConstraints()
+        changeObject()
     }
     
     // MARK: - Hierarquia
+    
     func setHierarchy(){
         self.view.addSubview(scrollView)
         scrollView.addSubview(homeView)

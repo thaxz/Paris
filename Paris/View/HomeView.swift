@@ -16,6 +16,8 @@ class HomeView: UIView {
     
     weak var delegate: HomeViewDelegate?
     
+    var object: String = "restaurant"
+    
     let segmentedControl: UISegmentedControl = {
         let segmented = UISegmentedControl(items: ["Restaurantes", "Passeios"])
         segmented.selectedSegmentIndex = 0
@@ -178,9 +180,30 @@ class HomeView: UIView {
         segmentedControl.addTarget(self, action: #selector(touchSegmented), for: .valueChanged)
     }
     
+    
     @objc func touchSegmented(_ sender: UISegmentedControl) {
         segmentedControl.changeUnderlinePosition()
         // Mudar o objeto de "Restaurante" para "Passeio" p/ atualizar as collections**
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            
+            object = "restaurant"
+            
+            bestEvaluatedCollectionView.reloadData()
+            closeToYouCollectionView.reloadData()
+            familyPlacesCollectionView.reloadData()
+            
+            print(object)
+            
+        } else if segmentedControl.selectedSegmentIndex == 1 {
+            
+            object = "tour"
+            bestEvaluatedCollectionView.reloadData()
+            closeToYouCollectionView.reloadData()
+            familyPlacesCollectionView.reloadData()
+            
+            print(object)
+        }
     }
     
     func setupSegmentedControl(with scrollView: UIScrollView){

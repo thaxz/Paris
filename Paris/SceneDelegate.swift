@@ -23,12 +23,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // criando navigation controller
         // home
         let homeNavigation = UINavigationController(rootViewController: HomeViewController())
+        homeNavigation.navigationBar.tintColor = UIColor(named: "redMain")
+        
         // search
         let searchNavigation = UINavigationController(rootViewController: SearchViewController())
         // salvos
         let savedNavigation = UINavigationController(rootViewController: SavedViewController())
         // perfil
         let profileNavigation = UINavigationController(rootViewController: ProfileViewController())
+        
+        
         
         // adicionando na tabBar as vc
         tabBarController.viewControllers = [homeNavigation, searchNavigation, savedNavigation]
