@@ -8,6 +8,8 @@
 import UIKit
 
 class ReviewSeeAllView: UIView {
+    
+    // Instantiating Components
 
     lazy var reviewSeeAllCollectionView: UICollectionView = {
         
@@ -66,6 +68,7 @@ class ReviewSeeAllView: UIView {
     
     // Ajusting home
     func setupReviewSeeAllView() {
+        
         
         setHierarchy()
         changingAttributes()

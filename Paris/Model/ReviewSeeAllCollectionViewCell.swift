@@ -17,7 +17,9 @@ class ReviewSeeAllCollectionViewCell: UICollectionViewCell {
         let imageView: UIImageView = UIImageView()
         imageView.image = UIImage(named: "")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 16
         
         return imageView
     }()
@@ -52,8 +54,7 @@ class ReviewSeeAllCollectionViewCell: UICollectionViewCell {
         var label: UILabel = UILabel()
         label.text = ""
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        label.numberOfLines = 0
-        label.sizeToFit()
+        label.numberOfLines = 1
         label.textColor = .black
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -65,9 +66,9 @@ class ReviewSeeAllCollectionViewCell: UICollectionViewCell {
     private lazy var reviewLabel: UILabel = {
        
         var label: UILabel = UILabel()
-        label.text = ""
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-//        label.numberOfLines = 1
+        label.numberOfLines = 0
+        label.sizeToFit()
         label.textColor = .black
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -78,40 +79,12 @@ class ReviewSeeAllCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .lightGray
+        self.backgroundColor = UIColor(named: "lightGray")
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 4
         changeAttributes()
     }
         
-    // Constraints
-    func settingConstraints() {
-        
-        NSLayoutConstraint.activate([
-        
-            profileImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            profileImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            profileImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            profileImage.heightAnchor.constraint(equalToConstant: 32),
-            profileImage.widthAnchor.constraint(equalToConstant: 32),
-            
-            profileName.topAnchor.constraint(equalTo: self.topAnchor, constant: 21),
-            profileName.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 12),
-            
-            starImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            starImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -32),
-            starImage.heightAnchor.constraint(equalToConstant: 17),
-            starImage.widthAnchor.constraint(equalToConstant: 17),
-            
-            ratingLabel.leadingAnchor.constraint(equalTo: starImage.trailingAnchor, constant: 8),
-            ratingLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            
-            reviewLabel.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 16),
-            reviewLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            reviewLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
-        ])
-    }
-    
     // Setting up
     func changeAttributes() {
         
@@ -121,10 +94,37 @@ class ReviewSeeAllCollectionViewCell: UICollectionViewCell {
         addSubview(ratingLabel)
         addSubview(reviewLabel)
         
-        profileImage.layer.masksToBounds = true
-        profileImage.layer.cornerRadius = 16
         settingConstraints()
     }
+    
+    // Constraints
+    func settingConstraints() {
+        
+        NSLayoutConstraint.activate([
+        
+            profileImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            profileImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            profileImage.heightAnchor.constraint(equalToConstant: 32),
+            profileImage.widthAnchor.constraint(equalToConstant: 32),
+            
+            profileName.topAnchor.constraint(equalTo: self.topAnchor, constant: 21),
+            profileName.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 12),
+
+            starImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            starImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -48),
+            starImage.heightAnchor.constraint(equalToConstant: 17),
+            starImage.widthAnchor.constraint(equalToConstant: 17),
+
+            ratingLabel.leadingAnchor.constraint(equalTo: starImage.trailingAnchor, constant: 8),
+            ratingLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+
+            reviewLabel.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 16),
+            reviewLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            reviewLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+        ])
+    }
+    
+    
     
     func setup(image: UIImage, name: String, rating: String, review: String) {
         
