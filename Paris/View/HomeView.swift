@@ -9,7 +9,7 @@ import UIKit
 
 protocol HomeViewDelegate: AnyObject {
 
-    func pushNewController()
+    func pushNewController(sender: Int)
 }
 
 class HomeView: UIView {
@@ -139,7 +139,6 @@ class HomeView: UIView {
         super.init(frame: frame)
         setHierarchy()
         btConfiguration()
-        changingAttributes()
     }
     
     required init?(coder: NSCoder) {
@@ -167,17 +166,27 @@ class HomeView: UIView {
         familyPlacesStackView.addArrangedSubview(btSeeAllFamilyPlaces)
     }
     
-    func changingAttributes(){
-        btSeeAll.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
-        btSeeAllFamilyPlaces.addTarget( self, action: #selector(tappedButton), for: .touchUpInside)
+    @objc func tappedButtonNights() {
+        
+        delegate?.pushNewController(sender: 1)
+        print("apertou em nights")
     }
     
-    @objc func tappedButton() {
-        delegate?.pushNewController()
+    @objc func tappedButtonFamily() {
+        
+        delegate?.pushNewController(sender: 2)
+        print("apertou em family")
     }
+    
     
     func btConfiguration(){
+        
         segmentedControl.addTarget(self, action: #selector(touchSegmented), for: .valueChanged)
+        
+        btSeeAll.addTarget(self, action: #selector(tappedButtonNights), for: .touchUpInside)
+        
+        btSeeAllFamilyPlaces.addTarget( self, action: #selector(tappedButtonFamily), for: .touchUpInside)
+        
     }
     
     

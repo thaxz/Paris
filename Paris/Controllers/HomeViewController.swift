@@ -97,13 +97,32 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeViewDelegate {
     
+    func pushNewController(sender: Int) {
+        
+        let profileViewController = ProfileViewController()
+        
+        if sender == 1 {
+            
+            // mudar variavel de lá para poder preencher com qual vai ser
+            
+        } else if sender == 2 {
+            
+            
+        }
+        
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+        
+        // fazer como tá em cima no didselect etc
+        // aqui embaixo é como vai ser
+        
+        let seeAllController = ""
+        
+    }
+    
+    
     // passar isso pro did select row at
     // aqui colocar que vai pra tela de ver mais
     
-    func pushNewController() {
-        let profileViewController = ProfileViewController()
-        self.navigationController?.pushViewController(profileViewController, animated: true)
-    }
 
 }
 
