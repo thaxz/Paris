@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let savedNavigation = UINavigationController(rootViewController: SavedViewController())
         // perfil
         _ = UINavigationController(rootViewController: ProfileViewController())
-        // veja mais
+        
         let seeAllNavigation = UINavigationController(rootViewController: SeeAllViewController())
         // see all review
         let reviewSeeAllNavigation = UINavigationController(rootViewController: ReviewSeeAllViewController())
