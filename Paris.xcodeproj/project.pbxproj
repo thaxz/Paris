@@ -13,6 +13,8 @@
 		A34614C128D509B7006E76A4 /* ReviewSeeAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34614C028D509B7006E76A4 /* ReviewSeeAllViewController.swift */; };
 		A34614C328D50C3D006E76A4 /* ReviewSeeAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34614C228D50C3D006E76A4 /* ReviewSeeAllView.swift */; };
 		A34614C528D50F26006E76A4 /* ReviewSeeAllCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34614C428D50F26006E76A4 /* ReviewSeeAllCollectionViewCell.swift */; };
+		A34614C728D8E14C006E76A4 /* ReviewSeeAllViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34614C628D8E14C006E76A4 /* ReviewSeeAllViewController+Delegate.swift */; };
+		A34614C928D8E15B006E76A4 /* ReviewSeeAllViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34614C828D8E15B006E76A4 /* ReviewSeeAllViewController+DataSource.swift */; };
 		A391505A28D25C3900C982EF /* SeeAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A391505928D25C3900C982EF /* SeeAllViewController.swift */; };
 		A391505C28D2635F00C982EF /* SeeAllCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A391505B28D2635F00C982EF /* SeeAllCollectionViewCell.swift */; };
 		E9182EAF28D006FA0071EB69 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EAE28D006FA0071EB69 /* TabBarController.swift */; };
@@ -41,6 +43,8 @@
 		A34614C028D509B7006E76A4 /* ReviewSeeAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSeeAllViewController.swift; sourceTree = "<group>"; };
 		A34614C228D50C3D006E76A4 /* ReviewSeeAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSeeAllView.swift; sourceTree = "<group>"; };
 		A34614C428D50F26006E76A4 /* ReviewSeeAllCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSeeAllCollectionViewCell.swift; sourceTree = "<group>"; };
+		A34614C628D8E14C006E76A4 /* ReviewSeeAllViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReviewSeeAllViewController+Delegate.swift"; sourceTree = "<group>"; };
+		A34614C828D8E15B006E76A4 /* ReviewSeeAllViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReviewSeeAllViewController+DataSource.swift"; sourceTree = "<group>"; };
 		A391505928D25C3900C982EF /* SeeAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllViewController.swift; sourceTree = "<group>"; };
 		A391505B28D2635F00C982EF /* SeeAllCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9182EAE28D006FA0071EB69 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				A34614BB28D3A83E006E76A4 /* SeeAllViewController+DataSource.swift */,
 				A34614BD28D3A85A006E76A4 /* SeeAllViewController+Delegate.swift */,
 				A34614C028D509B7006E76A4 /* ReviewSeeAllViewController.swift */,
+				A34614C828D8E15B006E76A4 /* ReviewSeeAllViewController+DataSource.swift */,
+				A34614C628D8E14C006E76A4 /* ReviewSeeAllViewController+Delegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 				A34614C328D50C3D006E76A4 /* ReviewSeeAllView.swift in Sources */,
 				A34614BA28D3A478006E76A4 /* SeeAllView.swift in Sources */,
 				E9182EB128D007920071EB69 /* SearchViewController.swift in Sources */,
+				A34614C728D8E14C006E76A4 /* ReviewSeeAllViewController+Delegate.swift in Sources */,
 				E9182EB528D011740071EB69 /* ExtensionSegmentedControll.swift in Sources */,
 				A34614BE28D3A85A006E76A4 /* SeeAllViewController+Delegate.swift in Sources */,
 				E9E58D0C28CD0E8D005BDAE8 /* UIView+Preview.swift in Sources */,
@@ -248,6 +255,7 @@
 				A34614BC28D3A83E006E76A4 /* SeeAllViewController+DataSource.swift in Sources */,
 				E9370BC428D0B6D300FD4344 /* ProfileViewController.swift in Sources */,
 				E9182EB328D007A00071EB69 /* SavedViewController.swift in Sources */,
+				A34614C928D8E15B006E76A4 /* ReviewSeeAllViewController+DataSource.swift in Sources */,
 				E9E58CF928CD0DB5005BDAE8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

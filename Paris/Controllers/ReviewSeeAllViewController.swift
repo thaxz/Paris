@@ -10,8 +10,7 @@ import UIKit
 class ReviewSeeAllViewController: UIViewController {
     
     // Creating components
-    let restaurants = Restaurant.restaurants()
-    let tours = Tour.tours()
+//    let review
     
     let reviewSeeAllView: ReviewSeeAllView = ReviewSeeAllView()
     
@@ -31,12 +30,13 @@ class ReviewSeeAllViewController: UIViewController {
         view.backgroundColor = .white
         
         // Title
-        self.navigationItem.title = "Avaliações"
+        self.navigationItem.title = "pora"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        
         // Setting up colletion view
-        //delegate
-        //datasourve
+        reviewSeeAllView.reviewSeeAllCollectionView.delegate = self
+        reviewSeeAllView.reviewSeeAllCollectionView.dataSource = self
     }
     
 }
