@@ -10,10 +10,16 @@ class SeeAllViewController: UIViewController {
 
     // Criar componentes
     
-    let restaurants = Restaurant.restaurants()
-    let tours = Tour.tours()
+    let nightRestaurants = Restaurant.nightRestaurants()
+    let nightTours = Tour.nightTours()
+    
+    let familyRestaurants = Restaurant.familyRestaurants()
+    let familyTours = Tour.familyTours()
     
     let seeAllView: SeeAllView = SeeAllView()
+    let homeView: HomeView = HomeView()
+    
+    var sender: Int = 15
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +36,7 @@ class SeeAllViewController: UIViewController {
     func setUpController() {
         
         view.backgroundColor = .white
+        print(sender)
         
         // Title
         self.navigationItem.title = "Veja mais"

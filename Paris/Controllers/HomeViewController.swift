@@ -21,6 +21,8 @@ class HomeViewController: UIViewController {
     let familyTours = Tour.familyTours()
     
     let homeView = HomeView()
+    
+    let seeAll: SeeAllViewController = SeeAllViewController()
         
     var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -99,23 +101,27 @@ extension HomeViewController: HomeViewDelegate {
     
     func pushNewController(sender: Int) {
         
-        let profileViewController = ProfileViewController()
-        
         if sender == 1 {
             
             // mudar variavel de lá para poder preencher com qual vai ser
             
+            seeAll.sender = 1
+            seeAll.seeAllView.seeAllCollectionView.reloadData()
+            self.navigationController?.pushViewController(seeAll, animated: true)
+            
         } else if sender == 2 {
             
-            
+            seeAll.sender = 2
+            seeAll.seeAllView.seeAllCollectionView.reloadData()
+            self.navigationController?.pushViewController(seeAll, animated: true)
         }
         
-        self.navigationController?.pushViewController(profileViewController, animated: true)
+        
         
         // fazer como tá em cima no didselect etc
         // aqui embaixo é como vai ser
+        let profileViewController = ProfileViewController()
         
-        let seeAllController = ""
         
     }
     
