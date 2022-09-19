@@ -18,7 +18,7 @@ class HomeView: UIView {
     
     var object: String = "restaurant"
     
-    let seeAll: SeeAllViewController = SeeAllViewController()
+    //let seeAll: SeeAllViewController = SeeAllViewController()
     
     let segmentedControl: UISegmentedControl = {
         let segmented = UISegmentedControl(items: ["Restaurantes", "Passeios"])
@@ -204,7 +204,7 @@ class HomeView: UIView {
             closeToYouCollectionView.reloadData()
             familyPlacesCollectionView.reloadData()
             
-            seeAll.seeAllView.seeAllCollectionView.reloadData()
+            //seeAll.seeAllView.seeAllCollectionView.reloadData()
             
             
             print(object)
@@ -216,7 +216,7 @@ class HomeView: UIView {
             closeToYouCollectionView.reloadData()
             familyPlacesCollectionView.reloadData()
             
-            seeAll.seeAllView.seeAllCollectionView.reloadData()
+            //seeAll.seeAllView.seeAllCollectionView.reloadData()
             
             print(object)
         }
