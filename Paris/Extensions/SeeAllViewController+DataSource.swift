@@ -13,6 +13,8 @@ extension SeeAllViewController: UICollectionViewDataSource {
         
         if sender == 1 {
             
+            self.navigationItem.title = "Noturnos"
+            
             if homeView.object == "restaurant" {
                 return nightRestaurants.count
             } else {
@@ -20,6 +22,8 @@ extension SeeAllViewController: UICollectionViewDataSource {
             }
             
         } else {
+            
+            self.navigationItem.title = "Família"
             
             if homeView.object == "restaurant" {
                 return familyRestaurants.count
