@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     let familyTours = Tour.familyTours()
     
     let homeView = HomeView()
+    let profileViewController = ProfileViewController()
     
     let seeAll: SeeAllViewController = SeeAllViewController()
         
@@ -128,9 +129,10 @@ extension HomeViewController: HomeViewDelegate {
     
     // passar isso pro did select row at
     // aqui colocar que vai pra tela de ver mais
-    
 
 }
+
+
 
 // MARK: - Preview at real time
 #if DEBUG

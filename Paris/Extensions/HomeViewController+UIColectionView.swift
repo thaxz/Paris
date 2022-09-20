@@ -134,10 +134,46 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return makeNightsCell(indexPath)
             
         } else {
-        
+            
             return makeFamilyCell(indexPath)
         }
     }
     
     // Colocar delegate aqui
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if collectionView == homeView.bestEvaluatedCollectionView {
+            
+            if homeView.object == "restaurant" {
+                
+                profileViewController.restaurant = bestRestaurants[indexPath.item]
+                
+            } else {
+               //profileViewController.tour = bestTours[indexPath.item]
+            }
+            
+        } else if  collectionView == homeView.closeToYouCollectionView {
+            
+            if homeView.object == "restaurant" {
+                profileViewController.restaurant = nightRestaurants[indexPath.item]
+                
+            } else {
+               // profileViewController.tour = nightTours[indexPath.item]
+            }
+            
+            
+        } else {
+            
+            if homeView.object == "restaurant" {
+                profileViewController.restaurant = familyRestaurants[indexPath.item]
+            } else {
+               // profileViewController.tour = familyTours[indexPath.item]
+            }
+        }
+        
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+        
+    }
 }
+

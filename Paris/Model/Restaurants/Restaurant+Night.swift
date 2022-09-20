@@ -63,7 +63,7 @@ extension Restaurant {
                        rating: "4.5",
                        priceRange: "R$ 30 - R$ 50",
                        distance: "",
-                       description: "O bar Central é um restaurante e bar que iniciou suas atividades no ano de 2004. Hoje pode ser considerado uma referência no Centro do Recife. Abre ao meio-dia, oferecendo almoço, e segue funcionando sem interrupção até as 2 horas da manhã. A partir das 18h, são colocadas mesas na calçada do estabelecimento. A cozinha do Central oferece pratos do mundo. Alguns clássicos da casa: sanduíche falafel, filé com fritas, pastelzinho, coxinha, samosa, arrumadinho, steak au poivre, filé à parmegiana, além de muitas opções vegetarianas.",
+                       description: "O bar Central é um restaurante e bar que iniciou suas atividades no ano de 2004. Abre ao meio-dia, e segue funcionando sem interrupção até as 2 horas da manhã. A partir das 18h, são colocadas mesas na calçada do estabelecimento.",
                        phoneNumber: "(81) 3222-7622",
                        address: "Rua Mamede Simões, 144 - Santo Amaro, Recife - PE.",
                        mainImage: "ivMainCentral",

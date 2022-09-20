@@ -17,7 +17,7 @@ extension Restaurant {
                        rating: "4.5",
                        priceRange: "R$ 15 - R$ 25",
                        distance: "",
-                       description: "Somos uma BRIGADERIA especializada, além dos brigadeiros gourmet, também temos tortas especiais, cupcakes, cones de brigadeiro, bolos no pote, etc. Na nossa loja oferecemos cafés e salgados com deliciosas opções. Anbiente agradável e climatizado. Aceitamos encomendas para festas em geral e estamos abertos todos os dias. Confiram os nossos horários.",
+                       description: "Somos uma BRIGADERIA especializada. Na nossa loja oferecemos cafés e salgados com deliciosas opções. Anbiente agradável e climatizado. Aceitamos encomendas para festas em geral e estamos abertos todos os dias.",
                        phoneNumber: "(81) 3075-6520",
                        address: "Rua General Polidoro, 352 - Varzea, Recife - PE",
                        mainImage: "ivMainThorpes",

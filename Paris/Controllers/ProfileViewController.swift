@@ -7,17 +7,21 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
-    // Tela do perfil
-    // MARK: - VAI ESTAR EM UMA VIEW DEPOIS PRA NAO FICAR TUDO NA CONTROLLER
     
     // MARK: - Iniciando os componentes (tipo IBOutlets)
     
     // Objetos
-    var restaurant: Restaurant?
-    var tour: Tour?
+    var restaurant: Restaurant!
+    //var tour: Tour?
     
-    let posterImage: UIImageView = UIImageView(image: UIImage(named: "ivDishLaPecora"))
+    let posterImage: UIImageView =  {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        //imageView.image = UIImage(named: "ivDishThorpes")
+        return imageView
+    }()
     
     // MARK: Stacks
     
@@ -27,7 +31,7 @@ class ProfileViewController: UIViewController {
         stack.alignment = .fill
         return stack
     }()
-        
+    
     // MARK: Scrolls
     // Sobre
     let aboutScrollView: UIScrollView = {
@@ -63,29 +67,29 @@ class ProfileViewController: UIViewController {
     let closeView = UIView()
     
     let closeRestaurantsCollectionView:  UICollectionView = {
-            let layout = UICollectionViewFlowLayout()
-            layout.itemSize = CGSize(width: 163, height: 186)
-            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
-            layout.scrollDirection = .horizontal
-            var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            collectionView.register(CloseToYouCollectionViewCell.self, forCellWithReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier)
-            collectionView.showsHorizontalScrollIndicator = false
-            return collectionView
-        }()
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 163, height: 186)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+        layout.scrollDirection = .horizontal
+        var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(CloseToYouCollectionViewCell.self, forCellWithReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier)
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
+    }()
     
     let closeToursCollectionView:  UICollectionView = {
-            let layout = UICollectionViewFlowLayout()
-            layout.itemSize = CGSize(width: 163, height: 186)
-            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
-            layout.scrollDirection = .horizontal
-            var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            collectionView.register(CloseToYouCollectionViewCell.self, forCellWithReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier)
-            collectionView.showsHorizontalScrollIndicator = false
-            return collectionView
-        }()
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 163, height: 186)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+        layout.scrollDirection = .horizontal
+        var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(CloseToYouCollectionViewCell.self, forCellWithReuseIdentifier: CloseToYouCollectionViewCell.cellIdentifier)
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
+    }()
     
     func settingCollections(){
-        // close to you collection 
+        // close to you collection
         closeRestaurantsCollectionView.delegate = self
         closeRestaurantsCollectionView.dataSource = self
         
@@ -107,7 +111,7 @@ class ProfileViewController: UIViewController {
     
     let placeTitle: UILabel = {
         var label = UILabel()
-        label.text = "Pina Cocktails & Co."
+        //label.text = "Pina Cocktails & Co."
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         return label
@@ -132,7 +136,7 @@ class ProfileViewController: UIViewController {
     
     let infoContent: UILabel = {
         var label = UILabel()
-        label.text = "5.0 ∙ R$80 - R$260 ∙ 2 km"
+        label.text = "5.0 ∙ R$80 - R$260"
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         return label
@@ -154,7 +158,7 @@ class ProfileViewController: UIViewController {
         stack.setIcon(withColor: .black)
         return stack
     }()
-
+    
     let aboutPhoneLabel: UILabel = {
         let label = UILabel()
         label.text = "O Pina Cocktail & Co. é o primeiro speakeasy (bar secreto) do nordeste. Somos uma bar de ambiente pequeno e intimista. Entrada apenas com reservas."
@@ -220,7 +224,7 @@ class ProfileViewController: UIViewController {
     let location: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.text = "Localização"
+        //label.text = "Localização"
         return label
     }()
     
@@ -229,7 +233,7 @@ class ProfileViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.numberOfLines = 0
         label.sizeToFit()
-        label.text = "Rua Jeremias Bastos, Pina - Recife"
+        //label.text = "Rua Jeremias Bastos, Pina - Recife"
         return label
     }()
     
@@ -238,7 +242,7 @@ class ProfileViewController: UIViewController {
     var needToAppear: [Bool] = [true, true, true]
     var scrollViews: [UIScrollView]?
     let closeTourView = UIView()
-
+    
     // Segmented control
     
     let segmentedControl: UISegmentedControl = {
@@ -258,15 +262,45 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpProfileController()
+        
         scrollViews = [
             aboutScrollView,
             nearScrollView,
             reviewScrollView
         ]
+        
         changeScrollViewBySegmentedIndex()
         
         settingCollections()
+        
+        guard let restaurant = restaurant else {return}
+        //guard let tour = tour else {return}
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        setUpProfile(image: UIImage(named: restaurant.mainImage)!,
+                     title: restaurant.name,
+                     rating: restaurant.rating,
+                     price: restaurant.priceRange,
+                     about: restaurant.description,
+                     phone: restaurant.phoneNumber,
+                     located: restaurant.address)
+    }
+    
+    func setUpProfile(image: UIImage, title: String, rating: String, price: String, about: String, phone: String, located: String){
+        
+        posterImage.image = image
+        placeTitle.text = title
+        infoContent.text = price
+        aboutDescriptionLabel.text = about
+        aboutPhoneLabel.text = phone
+        adress.text = located
+        
     }
     
     // Função que é chamada quando o valor da segmented é alterado
@@ -309,18 +343,18 @@ class ProfileViewController: UIViewController {
         closeTourView.frame = CGRect(x: 0, y: nearHeight, width: width, height: nearHeight)
         
     }
-
+    
     // MARK: - Ajustando hierarquia
     
     func setHierarchy(){
         self.view.addSubview(profileStack)
         profileStack.addArrangedSubview(profileContainer)
         profileStack.addArrangedSubview(aboutContainer)
-                
+        
         profileContainer.addSubview(posterImage)
         profileContainer.addSubview(placeStack)
         
-    
+        
         aboutContainer.addSubview(aboutScrollView)
         aboutContainer.addSubview(nearScrollView)
         aboutContainer.addSubview(reviewScrollView)
@@ -337,7 +371,7 @@ class ProfileViewController: UIViewController {
         
         placeInfoStack.addArrangedSubview(star)
         placeInfoStack.addArrangedSubview(infoContent)
-                
+        
         // Add na scrollView
         
         aboutScrollView.addSubview(descriptionView)
@@ -385,7 +419,7 @@ class ProfileViewController: UIViewController {
             profileStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             profileStack.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-                
+        
         profileContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             profileContainer.heightAnchor.constraint(equalTo: profileStack.heightAnchor, multiplier: 0.45)
@@ -396,7 +430,7 @@ class ProfileViewController: UIViewController {
             aboutContainer.heightAnchor.constraint(equalTo: profileStack.heightAnchor, multiplier: 0.55)
         ])
         
-  
+        
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             segmentedControl.centerXAnchor.constraint(equalTo: profileContainer.centerXAnchor),
@@ -404,9 +438,9 @@ class ProfileViewController: UIViewController {
             segmentedControl.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width-40)
         ])
         
-
+        
         posterImage.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             posterImage.topAnchor.constraint(equalTo: profileContainer.topAnchor),
             posterImage.leadingAnchor.constraint(equalTo: profileContainer.leadingAnchor),
@@ -435,7 +469,7 @@ class ProfileViewController: UIViewController {
             placeTitle.leadingAnchor.constraint(equalTo: placeTitleView.leadingAnchor, constant: 24),
             placeTitle.centerYAnchor.constraint(equalTo: placeTitleView.centerYAnchor)
         ])
-
+        
         placeInfoView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -448,7 +482,7 @@ class ProfileViewController: UIViewController {
         NSLayoutConstraint.activate([
             placeInfoStack.leadingAnchor.constraint(equalTo: placeInfoView.leadingAnchor, constant: 24),
             placeInfoStack.trailingAnchor.constraint(equalTo: placeInfoView.trailingAnchor)
-        
+            
         ])
         
         star.translatesAutoresizingMaskIntoConstraints = false
@@ -482,27 +516,27 @@ class ProfileViewController: UIViewController {
         // MARK: AQUI
         
         closeRestaurantsCollectionView.translatesAutoresizingMaskIntoConstraints = false
-    
-
+        
+        
         NSLayoutConstraint.activate([
-
+            
             closeRestaurantsCollectionView.topAnchor.constraint(equalTo: closeView.topAnchor, constant: 24),
             closeRestaurantsCollectionView.leadingAnchor.constraint(equalTo: closeView.leadingAnchor, constant: 24),
             closeRestaurantsCollectionView.trailingAnchor.constraint(equalTo: closeView.trailingAnchor, constant: -24),
             closeRestaurantsCollectionView.heightAnchor.constraint(equalToConstant: 186)
-
+            
         ])
         
         closeToursCollectionView.translatesAutoresizingMaskIntoConstraints = false
-    
-
+        
+        
         NSLayoutConstraint.activate([
-
+            
             closeToursCollectionView.topAnchor.constraint(equalTo: closeTourView.topAnchor, constant: 24),
             closeToursCollectionView.leadingAnchor.constraint(equalTo: closeTourView.leadingAnchor, constant: 24),
             closeToursCollectionView.trailingAnchor.constraint(equalTo: closeTourView.trailingAnchor, constant: -24),
             closeToursCollectionView.heightAnchor.constraint(equalToConstant: 186)
-
+            
         ])
         
         reviewScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -513,7 +547,7 @@ class ProfileViewController: UIViewController {
             reviewScrollView.trailingAnchor.constraint(equalTo: aboutContainer.trailingAnchor),
             reviewScrollView.bottomAnchor.constraint(equalTo: aboutContainer.bottomAnchor)
         ])
-                
+        
         aboutDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             aboutDescriptionLabel.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 24),
@@ -607,6 +641,9 @@ class ProfileViewController: UIViewController {
     // MARK: - Função geral de ajustar a tela
     
     func setUpProfileController () {
+        
+        print(restaurant)
+        //print(tour)
         
         view.backgroundColor = .white
         

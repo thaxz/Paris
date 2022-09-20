@@ -43,7 +43,6 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
     // MARK: - Inicializando componentes configurados
     let ivBestPlace: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "place")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 4
@@ -53,7 +52,6 @@ class BestEvaluatedCollectionViewCell: UICollectionViewCell {
     
     let lbName: UILabel = {
         let name = UILabel()
-        name.text = "nome do lugar"
         name.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         name.numberOfLines = 0
         return name

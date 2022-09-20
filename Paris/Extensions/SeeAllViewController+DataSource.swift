@@ -40,8 +40,6 @@ extension SeeAllViewController: UICollectionViewDataSource {
         
         if homeView.object == "restaurant" {
             
-            seeAllView.seeAllCollectionView.reloadData()
-            
             cell.setUp(image: UIImage(named: nightRestaurants[indexPath.item].mainImage)!,
                        name: nightRestaurants[indexPath.item].name,
                        rating: nightRestaurants[indexPath.item].rating)
@@ -49,8 +47,6 @@ extension SeeAllViewController: UICollectionViewDataSource {
             return cell
             
         } else {
-            
-            seeAllView.seeAllCollectionView.reloadData()
             
             cell.setUp(image: UIImage(named: nightTours[indexPath.item].mainImage)!,
                        name: nightTours[indexPath.item].name,

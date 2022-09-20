@@ -18,7 +18,7 @@ class HomeView: UIView {
     
     var object: String = "restaurant"
     
-    //let seeAll: SeeAllView
+    let seeAll = SeeAllView().seeAllCollectionView
     
     let segmentedControl: UISegmentedControl = {
         let segmented = UISegmentedControl(items: ["Restaurantes", "Passeios"])
@@ -204,9 +204,6 @@ class HomeView: UIView {
             closeToYouCollectionView.reloadData()
             familyPlacesCollectionView.reloadData()
             
-            //seeAll.seeAllView.seeAllCollectionView.reloadData()
-            
-            
             print(object)
             
         } else if segmentedControl.selectedSegmentIndex == 1 {
@@ -215,8 +212,6 @@ class HomeView: UIView {
             bestEvaluatedCollectionView.reloadData()
             closeToYouCollectionView.reloadData()
             familyPlacesCollectionView.reloadData()
-            
-            //seeAll.seeAllView.seeAllCollectionView.reloadData()
             
             print(object)
         }
@@ -264,3 +259,4 @@ class HomeView: UIView {
         ])
     }
 }
+
