@@ -18,7 +18,7 @@ class HomeView: UIView {
     
     var object: String = "restaurant"
     
-    //let seeAll: SeeAllViewController = SeeAllViewController()
+    //let seeAll: SeeAllView
     
     let segmentedControl: UISegmentedControl = {
         let segmented = UISegmentedControl(items: ["Restaurantes", "Passeios"])

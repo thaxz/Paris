@@ -23,6 +23,7 @@ extension SeeAllViewController: UICollectionViewDataSource {
             
         } else {
             
+            
             self.navigationItem.title = "Família"
             
             if homeView.object == "restaurant" {
@@ -33,52 +34,65 @@ extension SeeAllViewController: UICollectionViewDataSource {
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    fileprivate func makeNightSeeAll(_ indexPath: IndexPath) -> UICollectionViewCell {
         
-        if sender == 1 {
+        let cell = seeAllView.seeAllCollectionView.dequeueReusableCell(withReuseIdentifier: SeeAllCollectionViewCell.id, for: indexPath) as! SeeAllCollectionViewCell
+        
+        if homeView.object == "restaurant" {
             
-            let cell = seeAllView.seeAllCollectionView.dequeueReusableCell(withReuseIdentifier: SeeAllCollectionViewCell.id, for: indexPath) as! SeeAllCollectionViewCell
+            seeAllView.seeAllCollectionView.reloadData()
             
-            if homeView.object == "restaurant" {
-                
-                cell.setUp(image: UIImage(named: nightRestaurants[indexPath.item].mainImage)!,
-                           name: nightRestaurants[indexPath.item].name,
-                           rating: nightRestaurants[indexPath.item].rating)
-                
-                return cell
-                
-            } else {
-                
-                cell.setUp(image: UIImage(named: nightTours[indexPath.item].mainImage)!,
-                           name: nightTours[indexPath.item].name,
-                           rating: nightTours[indexPath.item].rating)
-                
-                return cell
-                
-            }
+            cell.setUp(image: UIImage(named: nightRestaurants[indexPath.item].mainImage)!,
+                       name: nightRestaurants[indexPath.item].name,
+                       rating: nightRestaurants[indexPath.item].rating)
             
-            
+            return cell
             
         } else {
             
-            let cell = seeAllView.seeAllCollectionView.dequeueReusableCell(withReuseIdentifier: SeeAllCollectionViewCell.id, for: indexPath) as! SeeAllCollectionViewCell
+            seeAllView.seeAllCollectionView.reloadData()
             
-            if homeView.object == "restaurant" {
-                
-                cell.setUp(image: UIImage(named: familyRestaurants[indexPath.item].mainImage)!,
-                           name: familyRestaurants[indexPath.item].name,
-                           rating: familyRestaurants[indexPath.item].rating)
-                
-                return cell
-                
-            } else {
-                
-                cell.setUp(image: UIImage(named: familyTours[indexPath.item].mainImage)!,
-                           name: familyTours[indexPath.item].name,
-                           rating: familyTours[indexPath.item].rating)
-                return cell
-                
-            }
+            cell.setUp(image: UIImage(named: nightTours[indexPath.item].mainImage)!,
+                       name: nightTours[indexPath.item].name,
+                       rating: nightTours[indexPath.item].rating)
+            
+            return cell
+            
+        }
+    }
+    
+    fileprivate func makeFamilySeeAll(_ indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = seeAllView.seeAllCollectionView.dequeueReusableCell(withReuseIdentifier: SeeAllCollectionViewCell.id, for: indexPath) as! SeeAllCollectionViewCell
+        
+        if homeView.object == "restaurant" {
+            
+            cell.setUp(image: UIImage(named: familyRestaurants[indexPath.item].mainImage)!,
+                       name: familyRestaurants[indexPath.item].name,
+                       rating: familyRestaurants[indexPath.item].rating)
+            
+            return cell
+            
+        } else {
+            
+            cell.setUp(image: UIImage(named: familyTours[indexPath.item].mainImage)!,
+                       name: familyTours[indexPath.item].name,
+                       rating: familyTours[indexPath.item].rating)
+            return cell
+            
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // Se for o primeiro "ver mais"
+        
+        if sender == 1 {
+            
+            return makeNightSeeAll(indexPath)
+            
+        } else {
+            
+            return makeFamilySeeAll(indexPath)
         }
     }
 }
