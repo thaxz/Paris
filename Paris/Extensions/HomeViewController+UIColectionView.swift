@@ -150,7 +150,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 profileViewController.restaurant = bestRestaurants[indexPath.item]
                 
             } else {
-               //profileViewController.tour = bestTours[indexPath.item]
+               profileViewController.tour = bestTours[indexPath.item]
             }
             
         } else if  collectionView == homeView.closeToYouCollectionView {
@@ -159,7 +159,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 profileViewController.restaurant = nightRestaurants[indexPath.item]
                 
             } else {
-               // profileViewController.tour = nightTours[indexPath.item]
+             profileViewController.tour = nightTours[indexPath.item]
             }
             
             
@@ -168,7 +168,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if homeView.object == "restaurant" {
                 profileViewController.restaurant = familyRestaurants[indexPath.item]
             } else {
-               // profileViewController.tour = familyTours[indexPath.item]
+                profileViewController.tour = familyTours[indexPath.item]
             }
         }
         

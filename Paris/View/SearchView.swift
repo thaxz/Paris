@@ -41,6 +41,7 @@ class SearchView: UIView {
         var attributedPieces = NSMutableAttributedString(string: pieces[0], attributes: regularAttrs)
         label.attributedText = attributedPieces
         label.numberOfLines = 0
+        label.textAlignment = .center
         label.textColor = UIColor(named: "black75")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isUserInteractionEnabled = false

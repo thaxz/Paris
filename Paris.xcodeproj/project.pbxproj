@@ -12,6 +12,7 @@
 		E9182EB328D007A00071EB69 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EB228D007A00071EB69 /* SavedViewController.swift */; };
 		E9182EB528D011740071EB69 /* ExtensionSegmentedControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EB428D011740071EB69 /* ExtensionSegmentedControll.swift */; };
 		E9182EB728D0118E0071EB69 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9182EB628D0118E0071EB69 /* ExtensionUIImage.swift */; };
+		E924574228D9F0CA00284822 /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E924574128D9F0CA00284822 /* SavedView.swift */; };
 		E9370BC428D0B6D300FD4344 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9370BC328D0B6D300FD4344 /* ProfileViewController.swift */; };
 		E93ACA9D28D508450034196E /* Profile+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ACA9C28D508450034196E /* Profile+DataSource.swift */; };
 		E93ACA9F28D5085C0034196E /* Profile+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ACA9E28D5085C0034196E /* Profile+Delegate.swift */; };
@@ -56,6 +57,7 @@
 		E9182EB228D007A00071EB69 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		E9182EB428D011740071EB69 /* ExtensionSegmentedControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExtensionSegmentedControll.swift; path = Paris/Extensions/ExtensionSegmentedControll.swift; sourceTree = SOURCE_ROOT; };
 		E9182EB628D0118E0071EB69 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
+		E924574128D9F0CA00284822 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SavedView.swift; path = Paris/View/SavedView.swift; sourceTree = SOURCE_ROOT; };
 		E9370BC328D0B6D300FD4344 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E93ACA9C28D508450034196E /* Profile+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+DataSource.swift"; sourceTree = "<group>"; };
 		E93ACA9E28D5085C0034196E /* Profile+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Profile+Delegate.swift"; path = "../../Profile+Delegate.swift"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				E9DB9E6128D2A5E80027B370 /* SearchView.swift */,
 				E93ACAA228D50E260034196E /* HomeView.swift */,
+				E924574128D9F0CA00284822 /* SavedView.swift */,
 				E93ACAA428D50EBF0034196E /* CollectionViewCells */,
 			);
 			path = View;
@@ -322,6 +325,7 @@
 				E97F43EA28D8FC15003EF8B1 /* SeeAllViewController.swift in Sources */,
 				E9182EB128D007920071EB69 /* SearchViewController.swift in Sources */,
 				E9DB9E6828D2BB350027B370 /* SearchViewController+DataSource.swift in Sources */,
+				E924574228D9F0CA00284822 /* SavedView.swift in Sources */,
 				E93D03FC28D60F2B00AAD03B /* Restaurant+Family.swift in Sources */,
 				E9182EB528D011740071EB69 /* ExtensionSegmentedControll.swift in Sources */,
 				E93D03F428D60B0700AAD03B /* Restaurant+BestEvaluated.swift in Sources */,

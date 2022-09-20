@@ -11,8 +11,12 @@ import UIKit
 
 class SavedViewController: UIViewController {
 
+    let savedView: SavedView = SavedView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view = savedView
         setUpSavedController()
        
     }
@@ -24,14 +28,8 @@ class SavedViewController: UIViewController {
         // Title
         self.navigationItem.title = "Lugares salvos"
         navigationController?.navigationBar.prefersLargeTitles = true
-        // Chamar outras funções que montem a tela aqui
+        
     }
-    
-    
-    
-    
-    
-
     
 
 }

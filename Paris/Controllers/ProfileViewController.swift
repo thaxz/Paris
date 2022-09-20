@@ -11,8 +11,8 @@ class ProfileViewController: UIViewController {
     // MARK: - Iniciando os componentes (tipo IBOutlets)
     
     // Objetos
-    var restaurant: Restaurant!
-    //var tour: Tour?
+    var restaurant: Restaurant?
+    var tour: Tour?
     
     let posterImage: UIImageView =  {
         let imageView = UIImageView()
@@ -275,21 +275,39 @@ class ProfileViewController: UIViewController {
         
         settingCollections()
         
-        guard let restaurant = restaurant else {return}
+        
         //guard let tour = tour else {return}
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        //guard let restaurant = restaurant else {return}
+        // Ta com erro pq depois da primeira, restaurante nunca mais é nil
         
-        setUpProfile(image: UIImage(named: restaurant.mainImage)!,
-                     title: restaurant.name,
-                     rating: restaurant.rating,
-                     price: restaurant.priceRange,
-                     about: restaurant.description,
-                     phone: restaurant.phoneNumber,
-                     located: restaurant.address)
+        if restaurant != nil {
+            setUpProfile(image: UIImage(named: restaurant?.mainImage ?? "")!,
+                         title: restaurant?.name ?? "Tente outro lugar!",
+                         rating: restaurant?.rating ?? "Tente outro lugar!",
+                         price: restaurant?.priceRange ?? "Tente outro lugar!",
+                         about: restaurant?.description ?? "Tente outro lugar!",
+                         phone: restaurant?.phoneNumber ?? "Tente outro lugar!",
+                         located: restaurant?.address ?? "Tente outro lugar!")
+        } else {
+            
+            
+            setUpProfile(image: UIImage(named: tour?.mainImage ?? "")!,
+                         title: tour?.name ?? "Tente outro lugar!",
+                         rating: tour?.rating ?? "Tente outro lugar!",
+                         price: "",
+                         about: tour?.description ?? "Tente outro lugar!",
+                         phone: tour?.phoneNumber ?? "Tente outro lugar!",
+                         located: tour?.address ?? "Tente outro lugar!")
+            
+            
+        }
+        
+       
     }
     
     func setUpProfile(image: UIImage, title: String, rating: String, price: String, about: String, phone: String, located: String){
@@ -643,7 +661,7 @@ class ProfileViewController: UIViewController {
     func setUpProfileController () {
         
         print(restaurant)
-        //print(tour)
+        print(tour)
         
         view.backgroundColor = .white
         
