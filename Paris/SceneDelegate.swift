@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // adicionando na tabBar as vc
         tabBarController.viewControllers = [homeNavigation, searchNavigation, savedNavigation]
         // dizendo que é o root vc
-        window.rootViewController = tabBarController
+        window.rootViewController = reviewSeeAllNavigation
         // window recebendo a que criamos
         self.window = window
         // deixando visivel

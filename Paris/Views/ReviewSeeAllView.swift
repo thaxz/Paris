@@ -16,7 +16,8 @@ class ReviewSeeAllView: UIView {
         // Flow
         let viewFlowLayout = UICollectionViewFlowLayout()
         viewFlowLayout.scrollDirection = .vertical
-        viewFlowLayout.itemSize = CGSize(width: 342, height: 168)
+//        viewFlowLayout.itemSize = CGSize(width: 342, height: 168)
+        viewFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         viewFlowLayout.minimumLineSpacing = 16
         
         // Collection attributes
@@ -68,7 +69,6 @@ class ReviewSeeAllView: UIView {
     
     // Ajusting home
     func setupReviewSeeAllView() {
-        
         
         setHierarchy()
         changingAttributes()
