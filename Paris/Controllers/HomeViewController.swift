@@ -117,19 +117,10 @@ extension HomeViewController: HomeViewDelegate {
             self.navigationController?.pushViewController(seeAll, animated: true)
         }
         
-        
-        
-        // fazer como tá em cima no didselect etc
-        // aqui embaixo é como vai ser
         let profileViewController = ProfileViewController()
         
         
     }
-    
-    
-    // passar isso pro did select row at
-    // aqui colocar que vai pra tela de ver mais
-
 }
 
 

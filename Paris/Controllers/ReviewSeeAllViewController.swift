@@ -32,10 +32,7 @@ class ReviewSeeAllViewController: UIViewController {
     func setupController() {
         
         view.backgroundColor = .white
-        
-        
-        
-        
+    
         // Setting up colletion view
         reviewSeeAllView.reviewSeeAllCollectionView.delegate = self
         reviewSeeAllView.reviewSeeAllCollectionView.dataSource = self

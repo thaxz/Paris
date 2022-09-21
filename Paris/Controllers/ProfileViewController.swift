@@ -14,6 +14,8 @@ class ProfileViewController: UIViewController {
     var restaurant: Restaurant?
     var tour: Tour?
     
+    let seeAllReview: ReviewSeeAllViewController = ReviewSeeAllViewController()
+    
     let posterImage: UIImageView =  {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -331,7 +333,7 @@ class ProfileViewController: UIViewController {
             setUpProfile(image: UIImage(named: restaurant?.mainImage ?? "")!,
                          title: restaurant?.name ?? "Tente outro lugar!",
                          rating: restaurant?.rating ?? "Tente outro lugar!",
-                         price: restaurant?.priceRange ?? "Tente outro lugar!",
+                         price: "\(restaurant!.rating) - \(restaurant!.priceRange)" ?? "Tente outro lugar" ,
                          about: restaurant?.description ?? "Tente outro lugar!",
                          phone: restaurant?.phoneNumber ?? "Tente outro lugar!",
                          located: restaurant?.address ?? "Tente outro lugar!")
@@ -341,7 +343,7 @@ class ProfileViewController: UIViewController {
             setUpProfile(image: UIImage(named: tour?.mainImage ?? "")!,
                          title: tour?.name ?? "Tente outro lugar!",
                          rating: tour?.rating ?? "Tente outro lugar!",
-                         price: "",
+                         price: tour!.rating ?? "Tente outro lugar",
                          about: tour?.description ?? "Tente outro lugar!",
                          phone: tour?.phoneNumber ?? "Tente outro lugar!",
                          located: tour?.address ?? "Tente outro lugar!")
@@ -444,7 +446,7 @@ class ProfileViewController: UIViewController {
         nearScrollView.addSubview(closeTourView)
         
         reviewScrollView.addSubview(lbTitleReview)
-        //reviewScrollView.addSubview(reviewCollectionView)
+        reviewScrollView.addSubview(reviewCollectionView)
         reviewScrollView.addSubview(btSeeAll)
         
         closeView.addSubview(closeRestaurantsCollectionView)
@@ -694,19 +696,17 @@ class ProfileViewController: UIViewController {
             lbTitleReview.leadingAnchor.constraint(equalTo: reviewScrollView.leadingAnchor, constant: 24),
             btSeeAll.leadingAnchor.constraint(equalTo: lbTitleReview.trailingAnchor, constant: 64),
             btSeeAll.topAnchor.constraint(equalTo: reviewScrollView.topAnchor, constant: 30),
+            //reviewCollectionView.topAnchor.constraint(equalTo: reviewScrollView.topAnchor, constant: 100)
+            reviewCollectionView.heightAnchor.constraint(equalToConstant: 150),
+            reviewCollectionView.trailingAnchor.constraint(equalTo: reviewScrollView.trailingAnchor, constant: 24),
+            reviewCollectionView.leadingAnchor.constraint(equalTo: reviewScrollView.leadingAnchor, constant: -24),
             
         ])
         
-//        NSLayoutConstraint.activate([
-//            reviewCollectionView.topAnchor.constraint(equalTo: reviewScrollView.topAnchor, constant: 50),
-//            reviewCollectionView.leadingAnchor.constraint(equalTo: reviewScrollView.leadingAnchor, constant: 24),
-//            reviewCollectionView.trailingAnchor.constraint(equalTo: reviewScrollView.trailingAnchor, constant: 24),
-//            reviewCollectionView.heightAnchor.constraint(equalToConstant: 150)
-//        
-//        ])
-        
-        
-        
+    }
+    
+    @objc func changeScreen(){
+        self.navigationController?.pushViewController(seeAllReview, animated: true)
     }
     
     // MARK: - Configuração dos botões
@@ -717,7 +717,7 @@ class ProfileViewController: UIViewController {
         segmentedControl.addTarget(self, action: #selector(touchSegmented), for: .valueChanged)
         
         // Tem que fazer de todos os botões da tela
-        
+        btSeeAll.addTarget(self, action: #selector(changeScreen), for: .touchUpInside)
     }
     
     // MARK: - Função geral de ajustar a tela
