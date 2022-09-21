@@ -43,6 +43,17 @@ extension ProfileViewController: UICollectionViewDataSource {
             
             return cell
             
+        } else {
+            
+            let cell = reviewCollectionView.dequeueReusableCell(withReuseIdentifier: ReviewSeeAllCollectionViewCell.id, for: indexPath) as! ReviewSeeAllCollectionViewCell
+            
+            cell.setup(image: UIImage(named: "ivDishThorpes")!,
+                       name: "abacaxi",
+                       rating: "5.0",
+                       review: "muito bom")
+            
+            
+            
         }
         
         return UICollectionViewCell()

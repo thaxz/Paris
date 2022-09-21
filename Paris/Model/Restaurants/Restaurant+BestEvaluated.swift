@@ -43,7 +43,7 @@ extension Restaurant {
                          rating: "4.8",
                          priceRange: "R$ 25 - R$ 50",
                          distance: "",
-                         description: "A Speck é uma hamburgueria de alto padrão, possui certificado Angus Beef e Wagyu Beef.",
+                         description: "A Speck é uma hamburgueria de alto padrão no Recife. Possui certificado Angus Beef e Wagyu Beef, contando com uma diversa variedade de sanduíches bem harmonizados em um ambiente descolado.",
                          phoneNumber: "(81) 98277-6677",
                          address: "Rua José Bonifácio, 747 - Torre, Recife - PE.",
                          mainImage: "ivMainSpeck",

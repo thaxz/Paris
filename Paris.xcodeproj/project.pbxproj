@@ -38,6 +38,11 @@
 		E97F43EE28D8FCB9003EF8B1 /* SeeAllViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F43ED28D8FCB9003EF8B1 /* SeeAllViewController+Delegate.swift */; };
 		E97F43F028D8FD0D003EF8B1 /* SeeAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F43EF28D8FD0D003EF8B1 /* SeeAllView.swift */; };
 		E97F43F228D8FD4B003EF8B1 /* SeeAllCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F43F128D8FD4B003EF8B1 /* SeeAllCollectionViewCell.swift */; };
+		E9C0085B28DA94740005F485 /* ReviewSeeAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0085A28DA94740005F485 /* ReviewSeeAllViewController.swift */; };
+		E9C0085D28DA94A60005F485 /* ReviewSeeAllViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0085C28DA94A60005F485 /* ReviewSeeAllViewController+Delegate.swift */; };
+		E9C0085F28DA94FC0005F485 /* ReviewSeeAllViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0085E28DA94FC0005F485 /* ReviewSeeAllViewController+DataSource.swift */; };
+		E9C0086128DA953B0005F485 /* ReviewSeeAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0086028DA953B0005F485 /* ReviewSeeAllView.swift */; };
+		E9C0086328DA957B0005F485 /* ReviewSeeAllCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0086228DA957B0005F485 /* ReviewSeeAllCollectionViewCell.swift */; };
 		E9DB9E6228D2A5E80027B370 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB9E6128D2A5E80027B370 /* SearchView.swift */; };
 		E9DB9E6428D2ADBD0027B370 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB9E6328D2ADBD0027B370 /* SearchTableViewCell.swift */; };
 		E9DB9E6628D2BAF70027B370 /* SearchViewController+TVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB9E6528D2BAF70027B370 /* SearchViewController+TVDelegate.swift */; };
@@ -83,6 +88,11 @@
 		E97F43ED28D8FCB9003EF8B1 /* SeeAllViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeeAllViewController+Delegate.swift"; sourceTree = "<group>"; };
 		E97F43EF28D8FD0D003EF8B1 /* SeeAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeeAllView.swift; path = Paris/View/SeeAllView.swift; sourceTree = SOURCE_ROOT; };
 		E97F43F128D8FD4B003EF8B1 /* SeeAllCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9C0085A28DA94740005F485 /* ReviewSeeAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSeeAllViewController.swift; sourceTree = "<group>"; };
+		E9C0085C28DA94A60005F485 /* ReviewSeeAllViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReviewSeeAllViewController+Delegate.swift"; sourceTree = "<group>"; };
+		E9C0085E28DA94FC0005F485 /* ReviewSeeAllViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReviewSeeAllViewController+DataSource.swift"; sourceTree = "<group>"; };
+		E9C0086028DA953B0005F485 /* ReviewSeeAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewSeeAllView.swift; path = Paris/View/ReviewSeeAllView.swift; sourceTree = SOURCE_ROOT; };
+		E9C0086228DA957B0005F485 /* ReviewSeeAllCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSeeAllCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9DB9E6128D2A5E80027B370 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchView.swift; path = Paris/View/SearchView.swift; sourceTree = SOURCE_ROOT; };
 		E9DB9E6328D2ADBD0027B370 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		E9DB9E6528D2BAF70027B370 /* SearchViewController+TVDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SearchViewController+TVDelegate.swift"; path = "Paris/Extensions/SearchViewController+TVDelegate.swift"; sourceTree = SOURCE_ROOT; };
@@ -115,6 +125,9 @@
 				E97F43E928D8FC15003EF8B1 /* SeeAllViewController.swift */,
 				E97F43EF28D8FD0D003EF8B1 /* SeeAllView.swift */,
 				E9370BC328D0B6D300FD4344 /* ProfileViewController.swift */,
+				E9C0085A28DA94740005F485 /* ReviewSeeAllViewController.swift */,
+				E9C0085C28DA94A60005F485 /* ReviewSeeAllViewController+Delegate.swift */,
+				E9C0085E28DA94FC0005F485 /* ReviewSeeAllViewController+DataSource.swift */,
 				E9182EAE28D006FA0071EB69 /* TabBarController.swift */,
 				E9E58CFA28CD0DB5005BDAE8 /* HomeViewController.swift */,
 				E9182EB028D007920071EB69 /* SearchViewController.swift */,
@@ -139,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				E97F43F128D8FD4B003EF8B1 /* SeeAllCollectionViewCell.swift */,
+				E9C0086228DA957B0005F485 /* ReviewSeeAllCollectionViewCell.swift */,
 				E9DB9E6328D2ADBD0027B370 /* SearchTableViewCell.swift */,
 				E93ACAA928D510420034196E /* FamilyPlacesCollectionViewCell.swift */,
 				E93ACAA528D50FC30034196E /* BestEvaluatedCollectionViewCell.swift */,
@@ -181,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				E9DB9E6128D2A5E80027B370 /* SearchView.swift */,
+				E9C0086028DA953B0005F485 /* ReviewSeeAllView.swift */,
 				E93ACAA228D50E260034196E /* HomeView.swift */,
 				E924574128D9F0CA00284822 /* SavedView.swift */,
 				E93ACAA428D50EBF0034196E /* CollectionViewCells */,
@@ -318,11 +333,13 @@
 				E93ACAA828D510130034196E /* CloseToYouCollectionViewCell.swift in Sources */,
 				E9E58CFB28CD0DB5005BDAE8 /* HomeViewController.swift in Sources */,
 				E9182EB728D0118E0071EB69 /* ExtensionUIImage.swift in Sources */,
+				E9C0086328DA957B0005F485 /* ReviewSeeAllCollectionViewCell.swift in Sources */,
 				E93ACAA628D50FC30034196E /* BestEvaluatedCollectionViewCell.swift in Sources */,
 				E94851A428D0AF760032DBDC /* Tour+Tours.swift in Sources */,
 				E94851A028D0A6C50032DBDC /* Tour.swift in Sources */,
 				E93D03F828D60DD200AAD03B /* Restaurant+Night.swift in Sources */,
 				E97F43EA28D8FC15003EF8B1 /* SeeAllViewController.swift in Sources */,
+				E9C0085F28DA94FC0005F485 /* ReviewSeeAllViewController+DataSource.swift in Sources */,
 				E9182EB128D007920071EB69 /* SearchViewController.swift in Sources */,
 				E9DB9E6828D2BB350027B370 /* SearchViewController+DataSource.swift in Sources */,
 				E924574228D9F0CA00284822 /* SavedView.swift in Sources */,
@@ -336,6 +353,8 @@
 				E9182EAF28D006FA0071EB69 /* TabBarController.swift in Sources */,
 				E94851A228D0AF610032DBDC /* Restaurant+Restaurants.swift in Sources */,
 				E9DB9E6428D2ADBD0027B370 /* SearchTableViewCell.swift in Sources */,
+				E9C0086128DA953B0005F485 /* ReviewSeeAllView.swift in Sources */,
+				E9C0085D28DA94A60005F485 /* ReviewSeeAllViewController+Delegate.swift in Sources */,
 				E93D03FE28D60FEF00AAD03B /* Tour+Family.swift in Sources */,
 				E9E58CF728CD0DB5005BDAE8 /* AppDelegate.swift in Sources */,
 				E9DB9E6228D2A5E80027B370 /* SearchView.swift in Sources */,
@@ -344,6 +363,7 @@
 				E97F43F228D8FD4B003EF8B1 /* SeeAllCollectionViewCell.swift in Sources */,
 				E9370BC428D0B6D300FD4344 /* ProfileViewController.swift in Sources */,
 				E97F43F028D8FD0D003EF8B1 /* SeeAllView.swift in Sources */,
+				E9C0085B28DA94740005F485 /* ReviewSeeAllViewController.swift in Sources */,
 				E9182EB328D007A00071EB69 /* SavedViewController.swift in Sources */,
 				E9E58CF928CD0DB5005BDAE8 /* SceneDelegate.swift in Sources */,
 				E97F43EE28D8FCB9003EF8B1 /* SeeAllViewController+Delegate.swift in Sources */,

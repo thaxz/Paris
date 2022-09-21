@@ -53,9 +53,18 @@ class ProfileViewController: UIViewController {
     let reviewScrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 500)
-        scroll.backgroundColor = .blue
+        //scroll.backgroundColor = .blue
         // scroll.showsVerticalScrollIndicator = false
         return scroll
+    }()
+    
+    let lbTitleReview: UILabel = {
+        var label = UILabel()
+        label.text = "O que estão falando"
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     // MARK: Views
@@ -237,6 +246,38 @@ class ProfileViewController: UIViewController {
         return label
     }()
     
+    lazy var reviewCollectionView: UICollectionView = {
+        
+        let viewFlowLayout = UICollectionViewFlowLayout()
+        viewFlowLayout.scrollDirection = .vertical
+//        viewFlowLayout.itemSize = CGSize(width: 342, height: 168)
+        viewFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        viewFlowLayout.minimumLineSpacing = 16
+        
+        // Collection attributes
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: viewFlowLayout)
+        collectionView.showsVerticalScrollIndicator = false
+        
+        // Identifier
+        collectionView.register(ReviewSeeAllCollectionViewCell.self, forCellWithReuseIdentifier: ReviewSeeAllCollectionViewCell.id)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return collectionView
+    }()
+    
+    let btSeeAll: UIButton = {
+        let bt = UIButton()
+        bt.setTitle("Ver mais", for: .normal)
+        bt.setTitleColor(.red, for: .normal)
+        bt.tintColor = .systemOrange
+        bt.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        bt.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        bt.translatesAutoresizingMaskIntoConstraints = false
+        return bt
+    }()
+    
+    
+    
     let profileContainer = UIView()
     let aboutContainer = UIView()
     var needToAppear: [Bool] = [true, true, true]
@@ -279,6 +320,7 @@ class ProfileViewController: UIViewController {
         //guard let tour = tour else {return}
         
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -400,6 +442,10 @@ class ProfileViewController: UIViewController {
         
         nearScrollView.addSubview(closeView)
         nearScrollView.addSubview(closeTourView)
+        
+        reviewScrollView.addSubview(lbTitleReview)
+        //reviewScrollView.addSubview(reviewCollectionView)
+        reviewScrollView.addSubview(btSeeAll)
         
         closeView.addSubview(closeRestaurantsCollectionView)
         closeTourView.addSubview(closeToursCollectionView)
@@ -640,6 +686,24 @@ class ProfileViewController: UIViewController {
             adress.leadingAnchor.constraint(equalTo: location.leadingAnchor),
             adress.trailingAnchor.constraint(equalTo: location.trailingAnchor)
         ])
+        
+        // Label review
+        
+        NSLayoutConstraint.activate([
+            lbTitleReview.topAnchor.constraint(equalTo: reviewScrollView.topAnchor, constant: 32),
+            lbTitleReview.leadingAnchor.constraint(equalTo: reviewScrollView.leadingAnchor, constant: 24),
+            btSeeAll.leadingAnchor.constraint(equalTo: lbTitleReview.trailingAnchor, constant: 64),
+            btSeeAll.topAnchor.constraint(equalTo: reviewScrollView.topAnchor, constant: 30),
+            
+        ])
+        
+//        NSLayoutConstraint.activate([
+//            reviewCollectionView.topAnchor.constraint(equalTo: reviewScrollView.topAnchor, constant: 50),
+//            reviewCollectionView.leadingAnchor.constraint(equalTo: reviewScrollView.leadingAnchor, constant: 24),
+//            reviewCollectionView.trailingAnchor.constraint(equalTo: reviewScrollView.trailingAnchor, constant: 24),
+//            reviewCollectionView.heightAnchor.constraint(equalToConstant: 150)
+//        
+//        ])
         
         
         
